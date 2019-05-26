@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <debugInfo>
 <pcToLineNum>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-example\\source\\IQDroidexampleView.mc" id="3" lineNum="5" pc="268435456" symbol="initialize"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-example\\source\\IQDroidexampleView.mc" id="3" lineNum="6" pc="268435460" symbol="initialize"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-example\\source\\IQDroidexampleView.mc" id="4" lineNum="10" pc="268435479" symbol="onLayout"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-example\\source\\IQDroidexampleView.mc" id="4" lineNum="11" pc="268435483" symbol="onLayout"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-example\\source\\IQDroidexampleView.mc" id="5" lineNum="17" pc="268435521" symbol="onShow"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-example\\source\\IQDroidexampleView.mc" id="6" lineNum="21" pc="268435526" symbol="onUpdate"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-example\\source\\IQDroidexampleView.mc" id="6" lineNum="23" pc="268435530" symbol="onUpdate"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-example\\source\\IQDroidexampleView.mc" id="7" lineNum="29" pc="268435551" symbol="onHide"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-example\\source\\IQDroidexampleApp.mc" id="9" lineNum="9" pc="268435556" symbol="initialize"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-example\\source\\IQDroidexampleApp.mc" id="9" lineNum="10" pc="268435560" symbol="initialize"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-example\\source\\IQDroidexampleApp.mc" id="10" lineNum="14" pc="268435579" symbol="onStart"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-example\\source\\IQDroidexampleApp.mc" id="10" lineNum="15" pc="268435583" symbol="onStart"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-example\\source\\IQDroidexampleApp.mc" id="11" lineNum="18" pc="268435647" symbol="dd"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-example\\source\\IQDroidexampleApp.mc" id="11" lineNum="19" pc="268435651" symbol="dd"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-example\\source\\IQDroidexampleApp.mc" id="12" lineNum="22" pc="268435678" symbol="ee"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-example\\source\\IQDroidexampleApp.mc" id="12" lineNum="23" pc="268435682" symbol="ee"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-example\\source\\IQDroidexampleApp.mc" id="13" lineNum="27" pc="268435709" symbol="onStop"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-example\\source\\IQDroidexampleApp.mc" id="14" lineNum="31" pc="268435714" symbol="getInitialView"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-example\\source\\IQDroidexampleApp.mc" id="14" lineNum="32" pc="268435718" symbol="getInitialView"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-example\\source\\IQDroidexampleMenuDelegate.mc" id="16" lineNum="6" pc="268435786" symbol="initialize"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-example\\source\\IQDroidexampleMenuDelegate.mc" id="16" lineNum="7" pc="268435790" symbol="initialize"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-example\\source\\IQDroidexampleMenuDelegate.mc" id="17" lineNum="10" pc="268435809" symbol="onMenuItem"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-example\\source\\IQDroidexampleMenuDelegate.mc" id="17" lineNum="11" pc="268435813" symbol="onMenuItem"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-example\\source\\IQDroidexampleMenuDelegate.mc" id="17" lineNum="12" pc="268435824" symbol="onMenuItem"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-example\\source\\IQDroidexampleMenuDelegate.mc" id="17" lineNum="13" pc="268435848" symbol="onMenuItem"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-example\\source\\IQDroidexampleMenuDelegate.mc" id="17" lineNum="14" pc="268435859" symbol="onMenuItem"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-example\\source\\IQDroidexampleDelegate.mc" id="19" lineNum="5" pc="268435884" symbol="initialize"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-example\\source\\IQDroidexampleDelegate.mc" id="19" lineNum="6" pc="268435888" symbol="initialize"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-example\\source\\IQDroidexampleDelegate.mc" id="20" lineNum="9" pc="268435907" symbol="onMenu"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-example\\source\\IQDroidexampleDelegate.mc" id="20" lineNum="10" pc="268435911" symbol="onMenu"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-example\\source\\IQDroidexampleDelegate.mc" id="20" lineNum="11" pc="268435995" symbol="onMenu"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid-example\\source\\IQDroidexampleView.mc" id="3" lineNum="5" pc="268435456" symbol="initialize"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid-example\\source\\IQDroidexampleView.mc" id="3" lineNum="6" pc="268435460" symbol="initialize"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid-example\\source\\IQDroidexampleView.mc" id="4" lineNum="10" pc="268435479" symbol="onLayout"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid-example\\source\\IQDroidexampleView.mc" id="4" lineNum="11" pc="268435483" symbol="onLayout"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid-example\\source\\IQDroidexampleView.mc" id="5" lineNum="17" pc="268435521" symbol="onShow"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid-example\\source\\IQDroidexampleView.mc" id="6" lineNum="21" pc="268435526" symbol="onUpdate"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid-example\\source\\IQDroidexampleView.mc" id="6" lineNum="23" pc="268435530" symbol="onUpdate"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid-example\\source\\IQDroidexampleView.mc" id="7" lineNum="29" pc="268435551" symbol="onHide"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid-example\\source\\IQDroidexampleApp.mc" id="9" lineNum="9" pc="268435556" symbol="initialize"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid-example\\source\\IQDroidexampleApp.mc" id="9" lineNum="10" pc="268435560" symbol="initialize"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid-example\\source\\IQDroidexampleApp.mc" id="10" lineNum="14" pc="268435579" symbol="onStart"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid-example\\source\\IQDroidexampleApp.mc" id="10" lineNum="15" pc="268435583" symbol="onStart"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid-example\\source\\IQDroidexampleApp.mc" id="11" lineNum="18" pc="268435647" symbol="onDownloadSuccessfully"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid-example\\source\\IQDroidexampleApp.mc" id="11" lineNum="19" pc="268435651" symbol="onDownloadSuccessfully"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid-example\\source\\IQDroidexampleApp.mc" id="12" lineNum="22" pc="268435678" symbol="onError"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid-example\\source\\IQDroidexampleApp.mc" id="12" lineNum="23" pc="268435682" symbol="onError"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid-example\\source\\IQDroidexampleApp.mc" id="13" lineNum="27" pc="268435709" symbol="onStop"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid-example\\source\\IQDroidexampleApp.mc" id="14" lineNum="31" pc="268435714" symbol="getInitialView"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid-example\\source\\IQDroidexampleApp.mc" id="14" lineNum="32" pc="268435718" symbol="getInitialView"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid-example\\source\\IQDroidexampleMenuDelegate.mc" id="16" lineNum="6" pc="268435786" symbol="initialize"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid-example\\source\\IQDroidexampleMenuDelegate.mc" id="16" lineNum="7" pc="268435790" symbol="initialize"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid-example\\source\\IQDroidexampleMenuDelegate.mc" id="17" lineNum="10" pc="268435809" symbol="onMenuItem"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid-example\\source\\IQDroidexampleMenuDelegate.mc" id="17" lineNum="11" pc="268435813" symbol="onMenuItem"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid-example\\source\\IQDroidexampleMenuDelegate.mc" id="17" lineNum="12" pc="268435824" symbol="onMenuItem"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid-example\\source\\IQDroidexampleMenuDelegate.mc" id="17" lineNum="13" pc="268435848" symbol="onMenuItem"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid-example\\source\\IQDroidexampleMenuDelegate.mc" id="17" lineNum="14" pc="268435859" symbol="onMenuItem"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid-example\\source\\IQDroidexampleDelegate.mc" id="19" lineNum="5" pc="268435884" symbol="initialize"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid-example\\source\\IQDroidexampleDelegate.mc" id="19" lineNum="6" pc="268435888" symbol="initialize"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid-example\\source\\IQDroidexampleDelegate.mc" id="20" lineNum="9" pc="268435907" symbol="onMenu"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid-example\\source\\IQDroidexampleDelegate.mc" id="20" lineNum="10" pc="268435911" symbol="onMenu"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid-example\\source\\IQDroidexampleDelegate.mc" id="20" lineNum="11" pc="268435995" symbol="onMenu"/>
 <entry filename="Rez" id="26" lineNum="16" pc="268435999" symbol="initialize"/>
 <entry filename="Rez" id="26" lineNum="17" pc="268436003" symbol="initialize"/>
 <entry filename="Rez" id="26" lineNum="18" pc="268436021" symbol="initialize"/>
@@ -43,132 +43,132 @@
 <entry filename="Rez" id="29" lineNum="44" pc="268436394" symbol="MainLayout"/>
 <entry filename="Rez" id="29" lineNum="45" pc="268436510" symbol="MainLayout"/>
 <entry filename="Rez" id="29" lineNum="48" pc="268436562" symbol="MainLayout"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="34" lineNum="28" pc="268436590" symbol="initialize"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="34" lineNum="29" pc="268436594" symbol="initialize"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="34" lineNum="30" pc="268436598" symbol="initialize"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="35" lineNum="40" pc="268436603" symbol="convertInfo"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="35" lineNum="41" pc="268436615" symbol="convertInfo"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="36" lineNum="51" pc="268436774" symbol="log"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="36" lineNum="52" pc="268436786" symbol="log"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="36" lineNum="53" pc="268436800" symbol="log"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="37" lineNum="73" pc="268436836" symbol="startIQDroid"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="37" lineNum="74" pc="268436848" symbol="startIQDroid"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="37" lineNum="75" pc="268436860" symbol="startIQDroid"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="37" lineNum="76" pc="268436870" symbol="startIQDroid"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="37" lineNum="77" pc="268436880" symbol="startIQDroid"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="37" lineNum="78" pc="268436890" symbol="startIQDroid"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="37" lineNum="79" pc="268436900" symbol="startIQDroid"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="37" lineNum="80" pc="268436910" symbol="startIQDroid"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="38" lineNum="87" pc="268436976" symbol="isIQDroidEnabled"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="38" lineNum="88" pc="268436988" symbol="isIQDroidEnabled"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="39" lineNum="94" pc="268436998" symbol="stopIQDroid"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="39" lineNum="95" pc="268437010" symbol="stopIQDroid"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="39" lineNum="96" pc="268437021" symbol="stopIQDroid"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="39" lineNum="97" pc="268437031" symbol="stopIQDroid"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="40" lineNum="107" pc="268437053" symbol="requestCallback"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="40" lineNum="108" pc="268437065" symbol="requestCallback"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="40" lineNum="109" pc="268437077" symbol="requestCallback"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="40" lineNum="111" pc="268437087" symbol="requestCallback"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="41" lineNum="115" pc="268437170" symbol="downloadCallback"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="41" lineNum="116" pc="268437182" symbol="downloadCallback"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="41" lineNum="117" pc="268437192" symbol="downloadCallback"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="41" lineNum="118" pc="268437203" symbol="downloadCallback"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="41" lineNum="120" pc="268437220" symbol="downloadCallback"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="42" lineNum="132" pc="268437241" symbol="disableAll"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="42" lineNum="133" pc="268437253" symbol="disableAll"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="42" lineNum="134" pc="268437263" symbol="disableAll"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="43" lineNum="142" pc="268437274" symbol="enableBattery"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="43" lineNum="143" pc="268437286" symbol="enableBattery"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="43" lineNum="144" pc="268437300" symbol="enableBattery"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="44" lineNum="148" pc="268437314" symbol="checkIsAnyToDisable"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="44" lineNum="149" pc="268437326" symbol="checkIsAnyToDisable"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="44" lineNum="150" pc="268437340" symbol="checkIsAnyToDisable"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="45" lineNum="154" pc="268437356" symbol="handleData"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="45" lineNum="155" pc="268437368" symbol="handleData"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="45" lineNum="156" pc="268437394" symbol="handleData"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="45" lineNum="157" pc="268437404" symbol="handleData"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="45" lineNum="158" pc="268437414" symbol="handleData"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="45" lineNum="159" pc="268437442" symbol="handleData"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="45" lineNum="160" pc="268437456" symbol="handleData"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="45" lineNum="161" pc="268437466" symbol="handleData"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="45" lineNum="162" pc="268437478" symbol="handleData"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="45" lineNum="163" pc="268437502" symbol="handleData"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="45" lineNum="164" pc="268437509" symbol="handleData"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="45" lineNum="165" pc="268437541" symbol="handleData"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="45" lineNum="167" pc="268437594" symbol="handleData"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="45" lineNum="168" pc="268437606" symbol="handleData"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="45" lineNum="170" pc="268437609" symbol="handleData"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="45" lineNum="171" pc="268437621" symbol="handleData"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="45" lineNum="174" pc="268437637" symbol="handleData"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="45" lineNum="175" pc="268437649" symbol="handleData"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="45" lineNum="176" pc="268437669" symbol="handleData"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="46" lineNum="191" pc="268437685" symbol="enableGPS"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="46" lineNum="192" pc="268437697" symbol="enableGPS"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="46" lineNum="193" pc="268437723" symbol="enableGPS"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="46" lineNum="194" pc="268437737" symbol="enableGPS"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="46" lineNum="195" pc="268437747" symbol="enableGPS"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="46" lineNum="196" pc="268437764" symbol="enableGPS"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="47" lineNum="203" pc="268437846" symbol="disableGPS"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="47" lineNum="204" pc="268437858" symbol="disableGPS"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="47" lineNum="205" pc="268437875" symbol="disableGPS"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="47" lineNum="206" pc="268437923" symbol="disableGPS"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="47" lineNum="207" pc="268437933" symbol="disableGPS"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="48" lineNum="214" pc="268438015" symbol="tryEnableGPSbyIQ"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="48" lineNum="215" pc="268438027" symbol="tryEnableGPSbyIQ"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="48" lineNum="216" pc="268438037" symbol="tryEnableGPSbyIQ"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="49" lineNum="222" pc="268438050" symbol="disableGPSByIQ"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="49" lineNum="223" pc="268438062" symbol="disableGPSByIQ"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="49" lineNum="224" pc="268438079" symbol="disableGPSByIQ"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="49" lineNum="225" pc="268438089" symbol="disableGPSByIQ"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="50" lineNum="231" pc="268438102" symbol="tryEnableGpsWithCallback"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="50" lineNum="232" pc="268438114" symbol="tryEnableGpsWithCallback"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="50" lineNum="233" pc="268438131" symbol="tryEnableGpsWithCallback"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="50" lineNum="234" pc="268438141" symbol="tryEnableGpsWithCallback"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="50" lineNum="235" pc="268438151" symbol="tryEnableGpsWithCallback"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="51" lineNum="241" pc="268438164" symbol="disableGpsWithCallback"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="51" lineNum="242" pc="268438176" symbol="disableGpsWithCallback"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="51" lineNum="243" pc="268438193" symbol="disableGpsWithCallback"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="51" lineNum="244" pc="268438202" symbol="disableGpsWithCallback"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="51" lineNum="245" pc="268438212" symbol="disableGpsWithCallback"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="52" lineNum="251" pc="268438225" symbol="onPositionIQ"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="52" lineNum="252" pc="268438237" symbol="onPositionIQ"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="52" lineNum="253" pc="268438272" symbol="onPositionIQ"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="52" lineNum="254" pc="268438286" symbol="onPositionIQ"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="52" lineNum="256" pc="268438309" symbol="onPositionIQ"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="52" lineNum="257" pc="268438344" symbol="onPositionIQ"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="52" lineNum="258" pc="268438365" symbol="onPositionIQ"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="52" lineNum="259" pc="268438379" symbol="onPositionIQ"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="53" lineNum="272" pc="268438395" symbol="clearData"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="53" lineNum="273" pc="268438407" symbol="clearData"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="54" lineNum="276" pc="268438417" symbol="getDataToSend"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="54" lineNum="277" pc="268438429" symbol="getDataToSend"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="54" lineNum="278" pc="268438446" symbol="getDataToSend"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="54" lineNum="279" pc="268438458" symbol="getDataToSend"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="54" lineNum="280" pc="268438472" symbol="getDataToSend"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="54" lineNum="282" pc="268438512" symbol="getDataToSend"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="55" lineNum="288" pc="268438552" symbol="setSendingTimer"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="55" lineNum="289" pc="268438564" symbol="setSendingTimer"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="55" lineNum="290" pc="268438581" symbol="setSendingTimer"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="55" lineNum="291" pc="268438594" symbol="setSendingTimer"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="55" lineNum="292" pc="268438636" symbol="setSendingTimer"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="56" lineNum="296" pc="268438702" symbol="sendData"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="56" lineNum="297" pc="268438714" symbol="sendData"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="56" lineNum="298" pc="268438731" symbol="sendData"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="56" lineNum="299" pc="268438745" symbol="sendData"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="56" lineNum="300" pc="268438763" symbol="sendData"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="56" lineNum="301" pc="268438772" symbol="sendData"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="56" lineNum="302" pc="268438807" symbol="sendData"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="58" lineNum="308" pc="268438869" symbol="initialize"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="58" lineNum="309" pc="268438873" symbol="initialize"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="59" lineNum="312" pc="268438904" symbol="onError"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="59" lineNum="313" pc="268438908" symbol="onError"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="59" lineNum="314" pc="268438925" symbol="onError"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="59" lineNum="315" pc="268438935" symbol="onError"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="59" lineNum="316" pc="268438958" symbol="onError"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="60" lineNum="319" pc="268438971" symbol="onComplete"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="60" lineNum="320" pc="268438975" symbol="onComplete"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="60" lineNum="321" pc="268438992" symbol="onComplete"/>
-<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid\\IQDroid.mc" id="60" lineNum="322" pc="268439002" symbol="onComplete"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="34" lineNum="28" pc="268436590" symbol="initialize"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="34" lineNum="29" pc="268436594" symbol="initialize"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="34" lineNum="30" pc="268436598" symbol="initialize"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="35" lineNum="40" pc="268436603" symbol="convertInfo"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="35" lineNum="41" pc="268436615" symbol="convertInfo"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="36" lineNum="51" pc="268436774" symbol="log"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="36" lineNum="52" pc="268436786" symbol="log"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="36" lineNum="53" pc="268436800" symbol="log"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="37" lineNum="73" pc="268436836" symbol="startIQDroid"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="37" lineNum="74" pc="268436848" symbol="startIQDroid"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="37" lineNum="75" pc="268436860" symbol="startIQDroid"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="37" lineNum="76" pc="268436870" symbol="startIQDroid"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="37" lineNum="77" pc="268436880" symbol="startIQDroid"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="37" lineNum="78" pc="268436890" symbol="startIQDroid"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="37" lineNum="79" pc="268436900" symbol="startIQDroid"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="37" lineNum="80" pc="268436910" symbol="startIQDroid"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="38" lineNum="87" pc="268436976" symbol="isIQDroidEnabled"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="38" lineNum="88" pc="268436988" symbol="isIQDroidEnabled"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="39" lineNum="94" pc="268436998" symbol="stopIQDroid"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="39" lineNum="95" pc="268437010" symbol="stopIQDroid"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="39" lineNum="96" pc="268437021" symbol="stopIQDroid"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="39" lineNum="97" pc="268437031" symbol="stopIQDroid"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="40" lineNum="107" pc="268437053" symbol="requestCallback"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="40" lineNum="108" pc="268437065" symbol="requestCallback"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="40" lineNum="109" pc="268437077" symbol="requestCallback"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="40" lineNum="110" pc="268437087" symbol="requestCallback"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="41" lineNum="114" pc="268437182" symbol="downloadCallback"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="41" lineNum="115" pc="268437194" symbol="downloadCallback"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="41" lineNum="116" pc="268437204" symbol="downloadCallback"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="41" lineNum="117" pc="268437215" symbol="downloadCallback"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="41" lineNum="119" pc="268437232" symbol="downloadCallback"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="42" lineNum="131" pc="268437253" symbol="disableAll"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="42" lineNum="132" pc="268437265" symbol="disableAll"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="42" lineNum="133" pc="268437275" symbol="disableAll"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="43" lineNum="141" pc="268437286" symbol="enableBattery"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="43" lineNum="142" pc="268437298" symbol="enableBattery"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="43" lineNum="143" pc="268437312" symbol="enableBattery"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="44" lineNum="147" pc="268437326" symbol="checkIsAnyToDisable"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="44" lineNum="148" pc="268437338" symbol="checkIsAnyToDisable"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="44" lineNum="149" pc="268437352" symbol="checkIsAnyToDisable"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="45" lineNum="153" pc="268437368" symbol="handleData"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="45" lineNum="154" pc="268437380" symbol="handleData"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="45" lineNum="155" pc="268437406" symbol="handleData"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="45" lineNum="156" pc="268437416" symbol="handleData"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="45" lineNum="157" pc="268437426" symbol="handleData"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="45" lineNum="158" pc="268437454" symbol="handleData"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="45" lineNum="159" pc="268437468" symbol="handleData"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="45" lineNum="160" pc="268437478" symbol="handleData"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="45" lineNum="161" pc="268437490" symbol="handleData"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="45" lineNum="162" pc="268437514" symbol="handleData"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="45" lineNum="163" pc="268437521" symbol="handleData"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="45" lineNum="164" pc="268437553" symbol="handleData"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="45" lineNum="166" pc="268437606" symbol="handleData"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="45" lineNum="167" pc="268437618" symbol="handleData"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="45" lineNum="169" pc="268437621" symbol="handleData"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="45" lineNum="170" pc="268437633" symbol="handleData"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="45" lineNum="173" pc="268437649" symbol="handleData"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="45" lineNum="174" pc="268437661" symbol="handleData"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="45" lineNum="175" pc="268437681" symbol="handleData"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="46" lineNum="190" pc="268437697" symbol="enableGPS"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="46" lineNum="191" pc="268437709" symbol="enableGPS"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="46" lineNum="192" pc="268437735" symbol="enableGPS"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="46" lineNum="193" pc="268437749" symbol="enableGPS"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="46" lineNum="194" pc="268437759" symbol="enableGPS"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="46" lineNum="195" pc="268437776" symbol="enableGPS"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="47" lineNum="202" pc="268437858" symbol="disableGPS"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="47" lineNum="203" pc="268437870" symbol="disableGPS"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="47" lineNum="204" pc="268437887" symbol="disableGPS"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="47" lineNum="205" pc="268437935" symbol="disableGPS"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="47" lineNum="206" pc="268437945" symbol="disableGPS"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="48" lineNum="213" pc="268438027" symbol="tryEnableGPSbyIQ"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="48" lineNum="214" pc="268438039" symbol="tryEnableGPSbyIQ"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="48" lineNum="215" pc="268438049" symbol="tryEnableGPSbyIQ"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="49" lineNum="221" pc="268438062" symbol="disableGPSByIQ"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="49" lineNum="222" pc="268438074" symbol="disableGPSByIQ"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="49" lineNum="223" pc="268438091" symbol="disableGPSByIQ"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="49" lineNum="224" pc="268438101" symbol="disableGPSByIQ"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="50" lineNum="230" pc="268438114" symbol="tryEnableGpsWithCallback"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="50" lineNum="231" pc="268438126" symbol="tryEnableGpsWithCallback"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="50" lineNum="232" pc="268438143" symbol="tryEnableGpsWithCallback"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="50" lineNum="233" pc="268438153" symbol="tryEnableGpsWithCallback"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="50" lineNum="234" pc="268438163" symbol="tryEnableGpsWithCallback"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="51" lineNum="240" pc="268438176" symbol="disableGpsWithCallback"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="51" lineNum="241" pc="268438188" symbol="disableGpsWithCallback"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="51" lineNum="242" pc="268438205" symbol="disableGpsWithCallback"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="51" lineNum="243" pc="268438214" symbol="disableGpsWithCallback"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="51" lineNum="244" pc="268438224" symbol="disableGpsWithCallback"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="52" lineNum="250" pc="268438237" symbol="onPositionIQ"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="52" lineNum="251" pc="268438249" symbol="onPositionIQ"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="52" lineNum="252" pc="268438284" symbol="onPositionIQ"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="52" lineNum="253" pc="268438298" symbol="onPositionIQ"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="52" lineNum="255" pc="268438321" symbol="onPositionIQ"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="52" lineNum="256" pc="268438356" symbol="onPositionIQ"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="52" lineNum="257" pc="268438377" symbol="onPositionIQ"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="52" lineNum="258" pc="268438391" symbol="onPositionIQ"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="53" lineNum="271" pc="268438407" symbol="clearData"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="53" lineNum="272" pc="268438419" symbol="clearData"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="54" lineNum="275" pc="268438429" symbol="getDataToSend"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="54" lineNum="276" pc="268438441" symbol="getDataToSend"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="54" lineNum="277" pc="268438458" symbol="getDataToSend"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="54" lineNum="278" pc="268438470" symbol="getDataToSend"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="54" lineNum="279" pc="268438484" symbol="getDataToSend"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="54" lineNum="281" pc="268438524" symbol="getDataToSend"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="55" lineNum="287" pc="268438564" symbol="setSendingTimer"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="55" lineNum="288" pc="268438576" symbol="setSendingTimer"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="55" lineNum="289" pc="268438593" symbol="setSendingTimer"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="55" lineNum="290" pc="268438606" symbol="setSendingTimer"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="55" lineNum="291" pc="268438648" symbol="setSendingTimer"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="56" lineNum="295" pc="268438714" symbol="sendData"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="56" lineNum="296" pc="268438726" symbol="sendData"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="56" lineNum="297" pc="268438743" symbol="sendData"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="56" lineNum="298" pc="268438757" symbol="sendData"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="56" lineNum="299" pc="268438775" symbol="sendData"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="56" lineNum="300" pc="268438784" symbol="sendData"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="56" lineNum="301" pc="268438819" symbol="sendData"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="58" lineNum="307" pc="268438881" symbol="initialize"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="58" lineNum="308" pc="268438885" symbol="initialize"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="59" lineNum="311" pc="268438916" symbol="onError"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="59" lineNum="312" pc="268438920" symbol="onError"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="59" lineNum="313" pc="268438937" symbol="onError"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="59" lineNum="314" pc="268438947" symbol="onError"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="59" lineNum="315" pc="268438970" symbol="onError"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="60" lineNum="318" pc="268438983" symbol="onComplete"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="60" lineNum="319" pc="268438987" symbol="onComplete"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="60" lineNum="320" pc="268439004" symbol="onComplete"/>
+<entry filename="C:\\Users\\szymon\\eclipse-workspace\\IQDroid-garmin\\IQDroid\\IQDroid.mc" id="60" lineNum="321" pc="268439014" symbol="onComplete"/>
 </pcToLineNum>
 <symbolTable>
 <entry field="true" id="37" symbol="errorCallback"/>
@@ -212,8 +212,8 @@
 <entry field="true" id="26" symbol="SENDING_INTERVAL"/>
 <entry id="22" module="true" symbol="IQDroid"/>
 <entry id="8389080" method="true" symbol="onMenu"/>
-<entry id="84" symbol="item_2"/>
-<entry id="83" symbol="item_1"/>
+<entry id="83" symbol="item_2"/>
+<entry id="82" symbol="item_1"/>
 <entry id="20" object="true" symbol="IQDroidexampleMenuDelegate"/>
 <entry field="true" id="63" symbol="sendingInProgress"/>
 <entry field="true" id="74" symbol="LauncherIcon"/>
@@ -230,6 +230,7 @@
 <entry field="true" id="8389064" symbol="locX"/>
 <entry id="8388771" module="true" object="true" symbol="Drawables"/>
 <entry id="8389122" method="true" symbol="onLayout"/>
+<entry id="81" method="true" symbol="onDownloadSuccessfully"/>
 <entry field="true" id="52" symbol="gpsEnabledByIQ"/>
 <entry id="49" method="true" symbol="checkIsAnyToDisable"/>
 <entry field="true" id="38" symbol="port"/>
@@ -267,8 +268,6 @@
 <entry field="true" id="27" symbol="DOWNLOADING_INTERVAL"/>
 <entry id="29" module="true" symbol="Menus"/>
 <entry field="true" id="71" symbol="id"/>
-<entry id="82" method="true" symbol="ee"/>
-<entry id="81" method="true" symbol="dd"/>
 <entry id="8388772" module="true" object="true" symbol="Fonts"/>
 <entry id="60" method="true" symbol="disableGpsWithCallback"/>
 <entry id="55" method="true" symbol="enableGPS"/>
@@ -282,9 +281,9 @@
 <entry endPc="268435709" name="code" stackId="1" startPc="268435678"/>
 <entry endPc="268435714" name="state" stackId="1" startPc="268435709"/>
 <entry endPc="268435884" name="item" stackId="1" startPc="268435809"/>
-<entry endPc="268436589" name="rez_cmp_local_bitmap_7330628346" stackId="2" startPc="268436138"/>
+<entry endPc="268436589" name="rez_cmp_local_bitmap_3516830129" stackId="2" startPc="268436138"/>
 <entry endPc="268436589" name="rez_cmp_local_bitmap_id_monkey" stackId="4" startPc="268436138"/>
-<entry endPc="268436589" name="rez_cmp_local_bitmap_7330628346_fontHeight" stackId="3" startPc="268436138"/>
+<entry endPc="268436589" name="rez_cmp_local_bitmap_3516830129_fontHeight" stackId="3" startPc="268436138"/>
 <entry endPc="268436590" name="dc" stackId="1" startPc="268436126"/>
 <entry endPc="268436603" name="requests" stackId="2" startPc="268436590"/>
 <entry endPc="268436603" name="id" stackId="1" startPc="268436590"/>
@@ -294,16 +293,16 @@
 <entry endPc="268436976" name="ec" stackId="2" startPc="268436836"/>
 <entry endPc="268436976" name="p" stackId="3" startPc="268436836"/>
 <entry endPc="268436976" name="c" stackId="1" startPc="268436836"/>
-<entry endPc="268437241" name="code" stackId="1" startPc="268437170"/>
-<entry endPc="268437241" name="data" stackId="2" startPc="268437170"/>
-<entry endPc="268437624" name="item" stackId="6" startPc="268437502"/>
-<entry endPc="268437637" name="i" stackId="5" startPc="268437502"/>
-<entry endPc="268437684" name="updatedData" stackId="4" startPc="268437368"/>
-<entry endPc="268437684" name="requests" stackId="3" startPc="268437368"/>
-<entry endPc="268437684" name="id" stackId="2" startPc="268437368"/>
-<entry endPc="268437685" name="data" stackId="1" startPc="268437356"/>
-<entry endPc="268438164" name="gpsC" stackId="1" startPc="268438102"/>
-<entry endPc="268438395" name="info" stackId="1" startPc="268438225"/>
+<entry endPc="268437253" name="code" stackId="1" startPc="268437182"/>
+<entry endPc="268437253" name="data" stackId="2" startPc="268437182"/>
+<entry endPc="268437636" name="item" stackId="6" startPc="268437514"/>
+<entry endPc="268437649" name="i" stackId="5" startPc="268437514"/>
+<entry endPc="268437696" name="updatedData" stackId="4" startPc="268437380"/>
+<entry endPc="268437696" name="requests" stackId="3" startPc="268437380"/>
+<entry endPc="268437696" name="id" stackId="2" startPc="268437380"/>
+<entry endPc="268437697" name="data" stackId="1" startPc="268437368"/>
+<entry endPc="268438176" name="gpsC" stackId="1" startPc="268438114"/>
+<entry endPc="268438407" name="info" stackId="1" startPc="268438237"/>
 </localVars>
 <annotations/>
 <functions>
@@ -331,11 +330,11 @@
 <param id="state"/>
 <documentation/>
 </functionEntry>
-<functionEntry accessMode="public" name="dd" parent="IQDroidexampleApp">
+<functionEntry accessMode="public" name="onDownloadSuccessfully" parent="IQDroidexampleApp">
 <param id="data"/>
 <documentation/>
 </functionEntry>
-<functionEntry accessMode="public" name="ee" parent="IQDroidexampleApp">
+<functionEntry accessMode="public" name="onError" parent="IQDroidexampleApp">
 <param id="code"/>
 <documentation/>
 </functionEntry>
