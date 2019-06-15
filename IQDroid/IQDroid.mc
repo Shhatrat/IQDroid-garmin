@@ -107,7 +107,7 @@ module IQDroid {
 		function requestCallback(){
 			if(!isDownloading){
 			  isDownloading = true;
-			  Toybox.Communications.makeWebRequest(url+port, parameters, options, Toybox.Lang.Object.method(:downloadCallback));
+			  Toybox.Communications.makeWebRequest(url+port, parameters, options, Toybox.Lang.Object.method(:downloadCallback));		
 			}
 		} 
 		
@@ -151,16 +151,18 @@ module IQDroid {
 		}
 		
 		private function handleData(data){
-			Toybox.System.println(data);
+			log("function handleData()");
+			log(data);
 			var id = data["id"];
 			var requests = data["req"];
 			var updatedData = new UpdatedData(id,requests);
+			log("id="+id+" lastId="+lastId);
 			if(id>lastId){
 				lastId=id;
 				disableAll();
 				for(var i = 0 ; i < requests.size(); i++){
 					var item = requests[i];
-					Toybox.System.println("item ===>" + item);					
+					log("item ===>" + item);					
 					switch (item){
 					case "GPS":
 						tryEnableGPSbyIQ();
@@ -297,7 +299,7 @@ module IQDroid {
 			if(sendingInProgress ==false){
 				sendingTimer.stop();
 				sendingTimer = null;
-				Toybox.System.println(getDataToSend());				
+				log(getDataToSend());				
 				Toybox.Communications.transmit(getDataToSend(), null, new SendingCallback());
 			}
 		}

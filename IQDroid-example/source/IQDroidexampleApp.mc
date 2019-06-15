@@ -12,7 +12,7 @@ class IQDroidexampleApp extends Application.AppBase {
 
     // onStart() is called on application start up
     function onStart(state) {
-	    IQDroid.UpdateManager.startIQDroid(method(:onDownloadSuccessfully), method(:onError), 8000, false);
+	    IQDroid.UpdateManager.startIQDroid(method(:onDownloadSuccessfully), method(:onError), 8000, true);
     }
     
     function onDownloadSuccessfully(data){
