@@ -107,7 +107,8 @@ module IQDroid {
 		function requestCallback(){
 			if(!isDownloading){
 			  isDownloading = true;
-			  Toybox.Communications.makeWebRequest(url+port, parameters, options, Toybox.Lang.Object.method(:downloadCallback));		
+			  Toybox.Communications.makeWebRequest("http://127.0.0.1:8000/", parameters, options, Toybox.Lang.Object.method(:downloadCallback));
+//			  Toybox.Communications.makeWebRequest("http://192.168.8.103:8000", parameters, options, Toybox.Lang.Object.method(:downloadCallback));			
 			}
 		} 
 		
@@ -157,7 +158,8 @@ module IQDroid {
 			var requests = data["req"];
 			var updatedData = new UpdatedData(id,requests);
 			log("id="+id+" lastId="+lastId);
-			if(id>lastId){
+//			if(id>lastId){
+			if(true){
 				lastId=id;
 				disableAll();
 				for(var i = 0 ; i < requests.size(); i++){
