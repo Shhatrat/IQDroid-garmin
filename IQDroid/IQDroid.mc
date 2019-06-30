@@ -108,14 +108,13 @@ module IQDroid {
 			if(!isDownloading){
 			  isDownloading = true;
 			  Toybox.Communications.makeWebRequest("http://127.0.0.1:8000/", parameters, options, Toybox.Lang.Object.method(:downloadCallback));
-//			  Toybox.Communications.makeWebRequest("http://192.168.8.103:8000", parameters, options, Toybox.Lang.Object.method(:downloadCallback));			
 			}
 		} 
 		
 		private function downloadCallback(code, data){
 			isDownloading = false;
 			if(code == 200){
-				handleData(data);
+				handleDataFromAndroidDev(data);
 			}else{
 				errorCallback.invoke(code);
 			}
@@ -151,15 +150,14 @@ module IQDroid {
 			}
 		}
 		
-		private function handleData(data){
-			log("function handleData()");
+		private function handleDataFromAndroidDev(data){
+			log("function handleDataFromAndroidDev()");
 			log(data);
 			var id = data["id"];
 			var requests = data["req"];
 			var updatedData = new UpdatedData(id,requests);
 			log("id="+id+" lastId="+lastId);
-//			if(id>lastId){
-			if(true){
+			if(id>lastId){
 				lastId=id;
 				disableAll();
 				for(var i = 0 ; i < requests.size(); i++){
@@ -290,7 +288,7 @@ module IQDroid {
 		
 		private function setSendingTimer(){
 			log("function setSendingTimer()");
-			if(sendingTimer == null){
+				if(sendingTimer == null){
 				sendingTimer = new Toybox.Timer.Timer();
 				sendingTimer.start(Toybox.Lang.Object.method(:sendData), SENDING_INTERVAL , false);	
 			}
@@ -298,7 +296,8 @@ module IQDroid {
 		
 		private function sendData(){
 			log("function sendData()");
-			if(sendingInProgress ==false){
+			if(sendingInProgress == false){
+				sendingInProgress = true;
 				sendingTimer.stop();
 				sendingTimer = null;
 				log(getDataToSend());				
