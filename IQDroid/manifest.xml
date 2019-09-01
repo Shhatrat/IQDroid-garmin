@@ -10,7 +10,7 @@
         <iq:languages/>
         <iq:barrels/>
         <iq:annotations>
-            <iq:annotation>UpdateManager</iq:annotation>
+            <iq:annotation>IQ</iq:annotation>
         </iq:annotations>
     </iq:barrel>
 </iq:manifest>
