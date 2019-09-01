@@ -43,7 +43,7 @@ module IQDroid {
 			var enabledByUser = false;
 			var working = false;
 			var callbackForUser;
-			var lastValue;
+			var value;
 		}
 		
 		
@@ -55,17 +55,17 @@ module IQDroid {
 			var lastValue;
 			var name;
 			
-			function initalize(fieldName){
+			function initialize(fieldName){
 				name = fieldName;
 			}
 			
 			function prepareValue(){
-				if(name == "BATTERY"){ return Toybox.System.getSystemStats().battery; }
+			log("SimpleFieldHolder.prepareValue(), name ="+name);
+				if(name.equals("BATTERY")){ return Toybox.System.getSystemStats().battery; }
 				if(name == "MAG"){ return Toybox.Sensor.getInfo().mag; }
 				if(name == "ALTITUDE"){ return Toybox.Sensor.getInfo().altitude; }
 				if(name == "HEADING"){ return Toybox.Sensor.getInfo().heading; }
 				if(name == "PRESSURE"){ return Toybox.Sensor.getInfo().pressure; }
-					return "Sth wrong";
 			}
 		}
 		
@@ -98,6 +98,7 @@ module IQDroid {
 			}
 			
 			function enableRequiredDevices(){
+				log("enableRequiredDevices()");
 				var size = items.size();
 	    		for( var i = 0; i < size; i += 1 ) {
 	    			var currentItem = items[i];	
@@ -116,8 +117,15 @@ module IQDroid {
 						arrayToEnable.add(currentItem.typeValue);
 					}
 	    		}
+				log("enableRequiredDevices(), arrayToEnable="+arrayToEnable);
 	    		Toybox.Sensor.setEnabledSensors(arrayToEnable);
+	    		Toybox.Sensor.enableSensorEvents(method(:onAnt));
 			}
+		}
+		
+		function onAnt(sensorInfo){
+			antContainer.lastValue = sensorInfo;
+			sendData();
 		}
 		
 		class AntHolder{
@@ -157,11 +165,11 @@ module IQDroid {
 		
 		var otherData = "";
 		
-		function initialize(){
+		function initData(){
 		//create AntContainer.items
 			log("initialize()");
 			antContainer.items = [cadenceHolder, heartRateHolder, powerHolder, powerHolder, speedHolder, temperatureHolder];
-			simpleItems = [batteryHolder ,accelHolder ,altitudeHolder ,headingHolder ,magHolder ,pressureHolder ];
+			simpleItems = [batteryHolder ,accelHolder ,altitudeHolder ,headingHolder ,magHolder ,pressureHolder];
 		}
 		
 		/**
@@ -214,6 +222,7 @@ module IQDroid {
 				errorCallback = ec;
 				logsEnabled = l;
 				timerEnabled = true;
+				initData();
 		    	timer.start(Toybox.Lang.Object.method(:requestCallback), DOWNLOADING_INTERVAL, true);
 		    }
 		}
@@ -244,8 +253,8 @@ module IQDroid {
 		function requestCallback(){
 			if(!isDownloading){
 			  isDownloading = true;
-//			  Toybox.Communications.makeWebRequest("http://127.0.0.1:8000/", parameters, options, Toybox.Lang.Object.method(:downloadCallback));
-			  Toybox.Communications.makeWebRequest("https://pastebin.com/raw/7ECMQk3w", parameters, options, Toybox.Lang.Object.method(:downloadCallback));
+//			  Toybox.Communications.makeWebRequest("http:127.0.0.1:8000/", parameters, options, Toybox.Lang.Object.method(:downloadCallback));
+			  Toybox.Communications.makeWebRequest("https://pastebin.com/raw/ApaVUr67", parameters, options, Toybox.Lang.Object.method(:downloadCallback));
 			}
 		} 
 		
@@ -275,6 +284,12 @@ module IQDroid {
 			headingHolder.enableByIQ = false;
 			magHolder.enableByIQ = false;
 			pressureHolder.enableByIQ = false;
+
+			tryEnableCadenceByIQ(false);
+			tryEnableHeartRateByIQ(false);
+			tryEnablePowerByIQ(false);
+			tryEnableSpeedByIQ(false);
+			tryEnableTemperatureByIQ(false);
 		}		
 	
 		 function handleDataFromAndroidDev(data){
@@ -317,19 +332,19 @@ module IQDroid {
 						pressureHolder.enableByIQ = true;
 						break;
 					case "CADENCE":
-						tryEnableCadenceByIQ();
+						tryEnableCadenceByIQ(true);
 						break;
 					case "HEART_RATE":
-						tryEnableHeartRateByIQ();
+						tryEnableHeartRateByIQ(true);
 						break;
 					case "POWER":
-						tryEnablePowerByIQ();
+						tryEnablePowerByIQ(true);
 						break;
 					case "SPEED":
-						tryEnableSpeedByIQ();
+						tryEnableSpeedByIQ(true);
 						break;
 					case "TEMPERATURE":
-						tryEnableTemperatureByIQ();
+						tryEnableTemperatureByIQ(true);
 						break;
 					}
 				}
@@ -402,6 +417,7 @@ module IQDroid {
 			
 			// check ANT+
 			//enable
+			log("function checkIsAnyToDisable(), antContainer.isAnyToEnable()="+ antContainer.isAnyToEnable());
 			if(antContainer.isAnyToEnable()){
 				antContainer.enableRequiredDevices();
 			}else if(antContainer.isAnyToDisable()){
@@ -516,32 +532,34 @@ module IQDroid {
 			
 			//simple fields
 			for(var i = 0 ; i < simpleItems.size(); i++){
-				var item = requests[i];
-				if(item.enabledByIQ == true){
-					item.value = item.prepareValue();
-					log("function getDataToSend"+item.name+"="+item.value);
-					responseDictionary.put(item.name , item.value);
+				var item = simpleItems[i];
+				if(item.enableByIQ == true){
+					item.lastValue = item.prepareValue();
+					log("function getDataToSend"+item.name+"="+item.lastValue);
+					responseDictionary.put(item.name , item.lastValue);
 				}
 			}		
 			
 			// other data
 			responseDictionary.put("OTHER", otherData);	
 			
-//			if(heartRate == true){
-//				responseDictionary.put("HEART_RATE", heartRateInfo);
-//			}
-//			if(cadence == true){
-//				responseDictionary.put("CADENCE", cadenceInfo);
-//			}
-//			if(power == true){
-//				responseDictionary.put("POWER", powerInfo);
-//			}
-//			if(speed == true){
-//				responseDictionary.put("SPEED", speedInfo);
-//			}
-//			if(temperature == true){
-//				responseDictionary.put("TEMPERATURE", temperatureInfo);
-//			}
+			
+			// ant+
+			if(heartRateHolder.enabledByIQ == true){
+				responseDictionary.put("HEART_RATE", antContainer.lastValue.heartRate);
+			}
+			if(cadenceHolder.enabledByIQ == true){
+				responseDictionary.put("CADENCE", antContainer.lastValue.cadence);
+			}
+			if(powerHolder.enabledByIQ == true){
+				responseDictionary.put("POWER", antContainer.lastValue.power);
+			}
+			if(speedHolder == true){
+				responseDictionary.put("SPEED", antContainer.lastValue.speed);
+			}
+			if(temperatureHolder == true){
+				responseDictionary.put("TEMPERATURE", antContainer.lastValue.temperature);
+			}
 			log("function getDataToSend data="+responseDictionary);
 			return responseDictionary;
 		}
