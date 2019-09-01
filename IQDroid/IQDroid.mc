@@ -62,10 +62,10 @@ module IQDroid {
 			function prepareValue(){
 			log("SimpleFieldHolder.prepareValue(), name ="+name);
 				if(name.equals("BATTERY")){ return Toybox.System.getSystemStats().battery; }
-				if(name == "MAG"){ return Toybox.Sensor.getInfo().mag; }
-				if(name == "ALTITUDE"){ return Toybox.Sensor.getInfo().altitude; }
-				if(name == "HEADING"){ return Toybox.Sensor.getInfo().heading; }
-				if(name == "PRESSURE"){ return Toybox.Sensor.getInfo().pressure; }
+				if(name.equals("MAG")){ return Toybox.Sensor.getInfo().mag; }
+				if(name.equals("ALTITUDE")){ return Toybox.Sensor.getInfo().altitude; }
+				if(name.equals("HEADING")){ return Toybox.Sensor.getInfo().heading; }
+				if(name.equals("PRESSURE")){ return Toybox.Sensor.getInfo().pressure; }
 			}
 		}
 		
@@ -98,7 +98,7 @@ module IQDroid {
 			}
 			
 			function enableRequiredDevices(){
-				log("enableRequiredDevices()");
+				log("AntContainer.enableRequiredDevices()");
 				var size = items.size();
 	    		for( var i = 0; i < size; i += 1 ) {
 	    			var currentItem = items[i];	
@@ -117,7 +117,7 @@ module IQDroid {
 						arrayToEnable.add(currentItem.typeValue);
 					}
 	    		}
-				log("enableRequiredDevices(), arrayToEnable="+arrayToEnable);
+				log("AntContainer.enableRequiredDevices(), arrayToEnable="+arrayToEnable);
 	    		Toybox.Sensor.setEnabledSensors(arrayToEnable);
 	    		Toybox.Sensor.enableSensorEvents(method(:onAnt));
 			}
@@ -176,8 +176,7 @@ module IQDroid {
 		*	Utils
 		**/
 		
-		 var logsEnabled = false;		
-		
+		 var logsEnabled = false;				
 
 		/**
 		*	function for converting GPS data
