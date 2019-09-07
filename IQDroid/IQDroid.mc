@@ -66,6 +66,7 @@ module IQDroid {
 				if(name.equals("ALTITUDE")){ return Toybox.Sensor.getInfo().altitude; }
 				if(name.equals("HEADING")){ return Toybox.Sensor.getInfo().heading; }
 				if(name.equals("PRESSURE")){ return Toybox.Sensor.getInfo().pressure; }
+				if(name.equals("TIME")){return Toybox.Time.now().value();}
 			}
 		}
 		
@@ -153,7 +154,8 @@ module IQDroid {
 		var headingHolder = new SimpleFieldHolder("HEADING");
 		var magHolder = new SimpleFieldHolder("MAG");
 		var pressureHolder = new SimpleFieldHolder("PRESSURE");
-
+		var timeHolder = new SimpleFieldHolder("TIME");
+		
 		var cadenceHolder = new AntHolder(Toybox.Sensor.SENSOR_BIKECADENCE);
 		var heartRateHolder = new AntHolder(Toybox.Sensor.SENSOR_HEARTRATE);
 		var powerHolder =  new AntHolder(Toybox.Sensor.SENSOR_BIKEPOWER);
@@ -169,7 +171,7 @@ module IQDroid {
 		//create AntContainer.items
 			log("initialize()");
 			antContainer.items = [cadenceHolder, heartRateHolder, powerHolder, powerHolder, speedHolder, temperatureHolder];
-			simpleItems = [batteryHolder ,accelHolder ,altitudeHolder ,headingHolder ,magHolder ,pressureHolder];
+			simpleItems = [batteryHolder ,accelHolder ,altitudeHolder ,headingHolder ,magHolder ,pressureHolder, timeHolder];
 		}
 		
 		/**
@@ -253,8 +255,8 @@ module IQDroid {
 		function requestCallback(){
 			if(!isDownloading){
 			  isDownloading = true;
-			  Toybox.Communications.makeWebRequest("http://127.0.0.1:8000/", parameters, options, Toybox.Lang.Object.method(:downloadCallback));
-//			  Toybox.Communications.makeWebRequest("https://pastebin.com/raw/ZT7tXbp1", parameters, options, Toybox.Lang.Object.method(:downloadCallback));
+//			  Toybox.Communications.makeWebRequest("http://127.0.0.1:8000/", parameters, options, Toybox.Lang.Object.method(:downloadCallback));
+			  Toybox.Communications.makeWebRequest("https://pastebin.com/raw/jaa4fEP1", parameters, options, Toybox.Lang.Object.method(:downloadCallback));
 			}
 		} 
 		
@@ -278,6 +280,7 @@ module IQDroid {
 			headingHolder.enableByIQ = false;
 			magHolder.enableByIQ = false;
 			pressureHolder.enableByIQ = false;
+			timeHolder.enableByIQ = false;
 
 			tryEnableCadenceByIQ(false);
 			tryEnableHeartRateByIQ(false);
@@ -321,6 +324,9 @@ module IQDroid {
 						break;
 					case "MAG":
 						magHolder.enableByIQ = true;
+						break;
+					case "TIME":
+						timeHolder.enableByIQ = true;
 						break;
 					case "PRESSURE":
 						pressureHolder.enableByIQ = true;
