@@ -176,7 +176,8 @@ module IQDroid {
 		*	Utils
 		**/
 		
-		 var logsEnabled = false;				
+		 var logsEnabled = false;		
+		
 
 		/**
 		*	function for converting GPS data
@@ -252,8 +253,8 @@ module IQDroid {
 		function requestCallback(){
 			if(!isDownloading){
 			  isDownloading = true;
-//			  Toybox.Communications.makeWebRequest("http:127.0.0.1:8000/", parameters, options, Toybox.Lang.Object.method(:downloadCallback));
-			  Toybox.Communications.makeWebRequest("https://pastebin.com/raw/ApaVUr67", parameters, options, Toybox.Lang.Object.method(:downloadCallback));
+			  Toybox.Communications.makeWebRequest("http://127.0.0.1:8000/", parameters, options, Toybox.Lang.Object.method(:downloadCallback));
+//			  Toybox.Communications.makeWebRequest("https://pastebin.com/raw/ZT7tXbp1", parameters, options, Toybox.Lang.Object.method(:downloadCallback));
 			}
 		} 
 		
@@ -270,12 +271,6 @@ module IQDroid {
 		
 		 function disableAll(){
 			gpsHolder.tryEnableByIQ = false;
-
-			cadenceHolder.tryEnableByIQ = false;
-			heartRateHolder.tryEnableByIQ = false;
-			powerHolder.tryEnableByIQ = false;
-			speedHolder.tryEnableByIQ = false;
-			temperatureHolder.tryEnableByIQ = false;
 
 			batteryHolder.enableByIQ = false;
 			accelHolder.enableByIQ = false;
@@ -553,10 +548,10 @@ module IQDroid {
 			if(powerHolder.enabledByIQ == true){
 				responseDictionary.put("POWER", antContainer.lastValue.power);
 			}
-			if(speedHolder == true){
+			if(speedHolder.enabledByIQ == true){
 				responseDictionary.put("SPEED", antContainer.lastValue.speed);
 			}
-			if(temperatureHolder == true){
+			if(temperatureHolder.enabledByIQ == true){
 				responseDictionary.put("TEMPERATURE", antContainer.lastValue.temperature);
 			}
 			log("function getDataToSend data="+responseDictionary);
