@@ -1,9 +1,12 @@
 using Toybox.WatchUi;
+using IQDroid.UpdateManager;
+using Toybox.Graphics as Gfx;
 
 class IQDroidexampleView extends WatchUi.View {
 
     function initialize() {
         View.initialize();
+        IQDroid.UpdateManager.startIQDroid(method(:onDownloadSuccessfully), method(:onError), 8000, true); 
     }
 
     // Load your resources here
@@ -16,11 +19,30 @@ class IQDroidexampleView extends WatchUi.View {
     // loading resources into memory.
     function onShow() {
     }
+    
+    function onDownloadSuccessfully(data){
+    	Toybox.System.println(data);
+    }
+       
+    
+    function onError(code){
+	    	Toybox.System.println(code);
+			mCode = code;
+    		Toybox.WatchUi.requestUpdate();
+    }
+    var mCode = 99;
 
     // Update the view
     function onUpdate(dc) {
         // Call the parent onUpdate function to redraw the layout
         View.onUpdate(dc);
+        
+        View.onUpdate(dc);
+        dc.setColor(Gfx.COLOR_BLACK, Gfx.COLOR_BLACK);
+		dc.clear();
+		dc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_TRANSPARENT);
+		dc.drawText(dc.getWidth()/2, dc.getHeight()* 0.2, Gfx.FONT_SMALL, mCode, Gfx.TEXT_JUSTIFY_CENTER);
+        
     }
 
     // Called when this View is removed from the screen. Save the

@@ -14,13 +14,16 @@ module IQDroid {
 	const SENDING_INTERVAL = 1000;
 	const DOWNLOADING_INTERVAL = 1000;	
 	
-	(:UpdateManager)
-	module UpdateManager{
+	(:IQ)
+	module IQ{
 		
 		/**
 		*	Model classes
 		**/
 		
+		/**
+		*	Class for storing data from android device.
+		*/
 		class UpdatedData{
 			var id;
 			var requests;
@@ -32,11 +35,155 @@ module IQDroid {
 		}
 		
 		/**
+		*	Class for storing data which need callbacks 
+		*/
+		class FieldHolder{
+			var tryEnableByIQ = false;
+			var enabledByIQ = false;
+			var enabledByUser = false;
+			var working = false;
+			var callbackForUser;
+			var value;
+		}
+		
+		
+		/**
+		*	Class for storing data which no need
+		*/
+		class SimpleFieldHolder{
+			var enableByIQ = false;
+			var lastValue;
+			var name;
+			
+			function initialize(fieldName){
+				name = fieldName;
+			}
+			
+			function prepareValue(){
+			log("SimpleFieldHolder.prepareValue(), name ="+name);
+				if(name.equals("BATTERY")){ return Toybox.System.getSystemStats().battery; }
+				if(name.equals("MAG")){ return Toybox.Sensor.getInfo().mag; }
+				if(name.equals("ALTITUDE")){ return Toybox.Sensor.getInfo().altitude; }
+				if(name.equals("HEADING")){ return Toybox.Sensor.getInfo().heading; }
+				if(name.equals("PRESSURE")){ return Toybox.Sensor.getInfo().pressure; }
+				if(name.equals("TIME")){return Toybox.Time.now().value();}
+			}
+		}
+		
+		class AntContainer{
+			var lastValue;
+			var items;	// list of AntHolder's
+			
+			function isAnyToEnable(){
+				var size = items.size();
+	    		for( var i = 0; i < size; i += 1 ) {
+	    			var currentItem = items[i];	
+	    			if((currentItem.enabledByIQ == false && currentItem.enabledByUser == false) 
+	    				&& (currentItem.tryEnableByIQ == true || currentItem.tryEnableByUser == true )){
+	    				return true;
+	    			}
+	    		}
+	    		return false;
+			}
+			
+			function isAnyToDisable(){
+				var size = items.size();
+	    		for( var i = 0; i < size; i += 1 ) {
+	    			var currentItem = items[i];	
+	    			if((currentItem.enabledByIQ == true || currentItem.enabledByUser == true) 
+	    				&& (currentItem.tryEnableByIQ == false || currentItem.tryEnableByUser == false )){
+	    				return true;
+	    			}
+	    		}
+	    		return false;
+			}
+			
+			function enableRequiredDevices(){
+				log("AntContainer.enableRequiredDevices()");
+				var size = items.size();
+	    		for( var i = 0; i < size; i += 1 ) {
+	    			var currentItem = items[i];	
+	    			if(currentItem.tryEnableByIQ == true){
+	    				currentItem.enabledByIQ = true;
+	    			}
+	    			if(currentItem.tryEnableByUser == true){
+	    				currentItem.enabledByUser = true;
+	    			}	    			
+	    		}
+	    		
+	    		var arrayToEnable=[];
+	    		for( var i = 0; i < size; i += 1 ) {
+	    			var currentItem = items[i];	
+					if(currentItem.enabledByIQ == true || currentItem.enabledByUser == true){
+						arrayToEnable.add(currentItem.typeValue);
+					}
+	    		}
+				log("AntContainer.enableRequiredDevices(), arrayToEnable="+arrayToEnable);
+	    		Toybox.Sensor.setEnabledSensors(arrayToEnable);
+	    		Toybox.Sensor.enableSensorEvents(method(:onAnt));
+			}
+		}
+		
+		function onAnt(sensorInfo){
+			antContainer.lastValue = sensorInfo;
+			sendData();
+		}
+		
+		class AntHolder{
+			var tryEnableByIQ = false;
+			var tryEnableByUser = false;
+			var enabledByIQ = false;
+			var enabledByUser = false;
+			var callbackForUser;
+			var typeValue;
+			
+			function initialize(type){
+				typeValue = type;
+			}
+		}
+		
+		/**
+		*	Storing data objects
+		*/
+		
+		var gpsHolder = new FieldHolder();
+
+		var batteryHolder = new SimpleFieldHolder("BATTERY");
+		var	accelHolder = new SimpleFieldHolder("ACCEL");
+		var altitudeHolder = new SimpleFieldHolder("ALTITUDE");
+		var headingHolder = new SimpleFieldHolder("HEADING");
+		var magHolder = new SimpleFieldHolder("MAG");
+		var pressureHolder = new SimpleFieldHolder("PRESSURE");
+		var timeHolder = new SimpleFieldHolder("TIME");
+		
+		var cadenceHolder = new AntHolder(Toybox.Sensor.SENSOR_BIKECADENCE);
+		var heartRateHolder = new AntHolder(Toybox.Sensor.SENSOR_HEARTRATE);
+		var powerHolder =  new AntHolder(Toybox.Sensor.SENSOR_BIKEPOWER);
+		var speedHolder = new AntHolder(Toybox.Sensor.SENSOR_BIKESPEED);
+		var temperatureHolder = new AntHolder(Toybox.Sensor.SENSOR_BIKEPOWER);
+		
+		var antContainer = new AntContainer();
+		var simpleItems;	//list of SimpleFieldHolder
+		
+		var otherData = "";
+		
+		function initData(){
+		//create AntContainer.items
+			log("initialize()");
+			antContainer.items = [cadenceHolder, heartRateHolder, powerHolder, powerHolder, speedHolder, temperatureHolder];
+			simpleItems = [batteryHolder ,accelHolder ,altitudeHolder ,headingHolder ,magHolder ,pressureHolder, timeHolder];
+		}
+		
+		/**
 		*	Utils
 		**/
 		
-		private var logsEnabled = false;		
+		 var logsEnabled = false;		
 		
+
+		/**
+		*	function for converting GPS data
+		*/
 		function convertInfo(info){
 			return  {
 			    "accuracy" => info.accuracy,
@@ -57,11 +204,11 @@ module IQDroid {
 		/**
 		*	Timer managment
 		**/
-		private var timer = new Toybox.Timer.Timer();
-		private var timerEnabled = false;
-		private var dataCallback;
-		private var errorCallback;
-		private var port;
+		 var timer = new Toybox.Timer.Timer();
+		 var timerEnabled = false;
+		 var dataCallback;
+		 var errorCallback;
+		 var port;
 		
 		/**
 		*	StartIQDroid function
@@ -77,6 +224,7 @@ module IQDroid {
 				errorCallback = ec;
 				logsEnabled = l;
 				timerEnabled = true;
+				initData();
 		    	timer.start(Toybox.Lang.Object.method(:requestCallback), DOWNLOADING_INTERVAL, true);
 		    }
 		}
@@ -102,73 +250,101 @@ module IQDroid {
 		*	Update managment
 		**/
 		
-		private var isDownloading = false;
+		 var isDownloading = false;
 		
 		function requestCallback(){
 			if(!isDownloading){
 			  isDownloading = true;
-			  Toybox.Communications.makeWebRequest(url+port, parameters, options, Toybox.Lang.Object.method(:downloadCallback));		
+//			  Toybox.Communications.makeWebRequest("http://127.0.0.1:8000/", parameters, options, Toybox.Lang.Object.method(:downloadCallback));
+			  Toybox.Communications.makeWebRequest("https://pastebin.com/raw/jaa4fEP1", parameters, options, Toybox.Lang.Object.method(:downloadCallback));
 			}
 		} 
 		
-		private function downloadCallback(code, data){
+		 function downloadCallback(code, data){
 			isDownloading = false;
 			if(code == 200){
-				handleData(data);
+				handleDataFromAndroidDev(data);
 			}else{
 				errorCallback.invoke(code);
 			}
 		}
 		
-		/**
-		*	handling data from Android device
-		**/
+		 var lastId = 0;
 		
-		private var gps = false;
-		private var battery = false;
-		private var lastId = 0;
-		
-		private function disableAll(){
-			gps = false;
-			battery = false;
-		}
-		
-		/**
-		*	enable services
-		*	GPS below
-		**/
-		
-		private function enableBattery(){
-			if(battery == false){
-				battery = true;
-			}
-		}
-		
-		private function checkIsAnyToDisable(){
-			if(gps==false){
-				disableGPSByIQ();
-			}
-		}
-		
-		private function handleData(data){
-			log("function handleData()");
-			log(data);
+		 function disableAll(){
+			gpsHolder.tryEnableByIQ = false;
+
+			batteryHolder.enableByIQ = false;
+			accelHolder.enableByIQ = false;
+			altitudeHolder.enableByIQ = false;
+			headingHolder.enableByIQ = false;
+			magHolder.enableByIQ = false;
+			pressureHolder.enableByIQ = false;
+			timeHolder.enableByIQ = false;
+
+			tryEnableCadenceByIQ(false);
+			tryEnableHeartRateByIQ(false);
+			tryEnablePowerByIQ(false);
+			tryEnableSpeedByIQ(false);
+			tryEnableTemperatureByIQ(false);
+		}		
+	
+		 function handleDataFromAndroidDev(data){
+			log("function handleDataFromAndroidDev()");
+			log("function handleDataFromAndroidDev()"+data);
 			var id = data["id"];
 			var requests = data["req"];
 			var updatedData = new UpdatedData(id,requests);
-			log("id="+id+" lastId="+lastId);
+			log("function handleDataFromAndroidDev() id="+id+" lastId="+lastId);
 			if(id>lastId){
+//			if(true){
 				lastId=id;
+				log("function handleDataFromAndroidDev() disableAll()");
+				log("function handleDataFromAndroidDev() requests.size() ="+requests.size());
+				log("function handleDataFromAndroidDev() requests="+requests);
 				disableAll();
 				for(var i = 0 ; i < requests.size(); i++){
 					var item = requests[i];
-					log("item ===>" + item);					
+					log("function handleDataFromAndroidDev() item ===>" + item);					
 					switch (item){
 					case "GPS":
 						tryEnableGPSbyIQ();
 						break;
 					case "BATTERY":
-						enableBattery();
+						batteryHolder.enableByIQ = true;
+						break;
+					case "ACCEL":
+						accelHolder.enableByIQ = true;
+						break;
+					case "ALTITUDE":
+						altitudeHolder.enableByIQ = true;
+						break;
+					case "HEADING":
+						headingHolder.enableByIQ = true;
+						break;
+					case "MAG":
+						magHolder.enableByIQ = true;
+						break;
+					case "TIME":
+						timeHolder.enableByIQ = true;
+						break;
+					case "PRESSURE":
+						pressureHolder.enableByIQ = true;
+						break;
+					case "CADENCE":
+						tryEnableCadenceByIQ(true);
+						break;
+					case "HEART_RATE":
+						tryEnableHeartRateByIQ(true);
+						break;
+					case "POWER":
+						tryEnablePowerByIQ(true);
+						break;
+					case "SPEED":
+						tryEnableSpeedByIQ(true);
+						break;
+					case "TEMPERATURE":
+						tryEnableTemperatureByIQ(true);
 						break;
 					}
 				}
@@ -177,22 +353,97 @@ module IQDroid {
 				setSendingTimer();
 			}
 		}
+						
+		/**
+		*	Enable sensors by IQ
+		**/
+		 function tryEnablePowerByIQ(enabled){
+			 powerHolder.tryEnableByIQ = enabled;
+		}
+		
+		 function tryEnableCadenceByIQ(enabled){
+ 			 cadenceHolder.tryEnableByIQ = enabled;
+		}
+
+		 function tryEnableHeartRateByIQ(enabled){
+			 heartRateHolder.tryEnableByIQ = enabled;
+		}
+
+		 function tryEnableSpeedByIQ(enabled){
+			 speedHolder.tryEnableByIQ = enabled;
+		}
+		
+		 function tryEnableTemperatureByIQ(enabled){
+			 temperatureHolder.tryEnableByIQ = enabled;
+		}
+		
+		/**
+		*	Enable sensors by User
+		**/
+		 function tryEnablePowerByUser(c, enabled){
+			 powerHolder.tryEnableByUser = enabled;
+			 powerHolder.callbackForUser = c;
+		}
+		
+		 function tryEnableCadenceByUser(c, enabled){
+ 			 cadenceHolder.tryEnableByUser = enabled;
+			 cadenceHolder.callbackForUser = c;
+		}
+
+		 function tryEnableHeartRateByUser(c, enabled){
+			 heartRateHolder.tryEnableByUser = enabled;
+			 heartRateHolder.callbackForUser = c;
+		}
+
+		 function tryEnableSpeedByUser(c, enabled){
+			 speedHolder.tryEnableByUser = enabled;
+			 speedHolder.callbackForUser = c;
+		}
+		
+		 function enableTemperatureByUser(c, enabled){
+			 temperatureHolder.tryEnableByUser = enabled;
+			 temperatureHolder.callbackForUser = c;
+		}		
+
+		
+		/**
+		*	check to disable
+		**/		
+		
+		 function checkIsAnyToDisable(){
+			if(gpsField.enabledByIQ==false){
+				disableGPSByIQ();
+			}
+			
+			// check ANT+
+			//enable
+			log("function checkIsAnyToDisable(), antContainer.isAnyToEnable()="+ antContainer.isAnyToEnable());
+			if(antContainer.isAnyToEnable()){
+				antContainer.enableRequiredDevices();
+			}else if(antContainer.isAnyToDisable()){
+				antContainer.enableRequiredDevices();
+			}
+		}
+		
+		/**
+		*	Other data
+		**/
+		function setOtherData(dataToSet){
+			otherData = dataToSet;
+		}
 		
 		/**
 		*	GPS
 		**/		
-		private var gpsCallback;
-		private var gpsEnabledByIQ = false;
-		private var gpsEnabledByUser = false;
-		private var gpsWorking = false;
+		 var gpsField = new FieldHolder();
 	
 		/**
 		*	Main function to enable gps. Only this function can invoke Toybox.Position.enableLocationEvents(Toybox.Position.LOCATION_CONTINUOUS... )
 		**/
-		private function enableGPS(){
-			log("function enableGPS(), gpsWorking ="+gpsWorking);
-			if(gpsWorking == false){
-				gpsWorking = true;
+		 function enableGPS(){
+			log("function enableGPS(), working ="+gpsField.working);
+			if(gpsField.working == false){
+				gpsField.working = true;
 				log("function enableGPS(), enableLocationEvents");				
 				Toybox.Position.enableLocationEvents(Toybox.Position.LOCATION_CONTINUOUS, Toybox.Lang.Object.method(:onPositionIQ));
 			}
@@ -201,10 +452,11 @@ module IQDroid {
 		/**
 		*	Main function to disable gps. Only this function can invoke Toybox.Position.enableLocationEvents(Toybox.Position.LOCATION_DISABLE... )
 		**/
-		private function disableGPS(){
+		 function disableGPS(){
 			log("function disableGPS()");
-			if(gpsWorking ==true && (gpsEnabledByUser ==true || gpsEnabledByIQ == true)){				
-				gpsWorking = false;
+			if(gpsField.working ==true){				
+				log("function disableGPS() disabled");
+				gpsField.working = false;
 				Toybox.Position.enableLocationEvents(Toybox.Position.LOCATION_DISABLE, Toybox.Lang.Object.method(:onPositionIQ));		
 			}
 		}	
@@ -212,17 +464,17 @@ module IQDroid {
 		/**
 		*	function for enabling gps by IQDroid.
 		**/ 							
-		private function tryEnableGPSbyIQ(){
-			gpsEnabledByIQ = true;
+		 function tryEnableGPSbyIQ(){
+			gpsField.enabledByIQ = true;
 			enableGPS();
 		}
 		
 		/**
 		*	function for disabling gps by IQDroid.
 		**/ 					
-		private function disableGPSByIQ(){
+		 function disableGPSByIQ(){
 			log("function disableGPSByIQ()");				
-			gpsEnabledByIQ = false;
+			gpsField.enabledByIQ = false;
 			disableGPS();			
 		}
 
@@ -231,8 +483,8 @@ module IQDroid {
 		**/ 			
 		function tryEnableGpsWithCallback(gpsC){
 			log("function tryEnableGpsWithCallback()");	
-			gpsCallback = gpsC;
-			gpsEnabledByUser = true;	
+			gpsField.callbackForUser = gpsC;
+			gpsField.enabledByUser = true;	
 			enableGPS();
 		}
 
@@ -241,22 +493,22 @@ module IQDroid {
 		**/ 					
 		function disableGpsWithCallback(){
 			log("function disableGpsWithCallback()");	
-			gpsCallback = null;
-			gpsEnabledByUser = false;
+			gpsField.callbackForUser = null;
+			gpsField.enabledByUser = false;
 			disableGPS();
 		}
 		
 		/**
 		*	Callback function for handling gps position.
 		**/ 
-		private function onPositionIQ(info){
-			log("function onPositionIQ("+info+"), gpsEnabledByUser="+gpsEnabledByUser);
-			if(gpsEnabledByUser == true){
-				gpsCallback.invoke(info);
+		 function onPositionIQ(info){
+			log("function onPositionIQ("+info+"), gpsEnabledByUser="+gpsField.enabledByUser);
+			if(gpsField.enabledByUser == true){
+				gpsField.callbackForUser.invoke(info);
 			}
-			log("function onPositionIQ("+info+"), gpsEnabledByUser="+gpsEnabledByIQ);			
-			gpsInfo = convertInfo(info);
-			if(gpsEnabledByIQ == true){
+			log("function onPositionIQ("+info+"), gpsEnabledByIQ="+gpsField.enabledByIQ);			
+			gpsField.value = convertInfo(info);
+			if(gpsField.enabledByIQ == true){
 				sendData();
 			}
 		}
@@ -264,39 +516,66 @@ module IQDroid {
 		/**
 		*	Send managment
 		**/
-		private var sendingTimer;
-		
-		private var sendingInProgress=false;
-		private var gpsInfo;
-		private var batteryInfo;	
+		 var sendingTimer;
+		 var sendingInProgress=false;
 	
-		private function clearData(){
-			batteryInfo = null;
-		}
 	
-		private function getDataToSend(){
-			log("function getDataToSend()");
-			clearData();
-			if(battery == true){
-				batteryInfo = Toybox.System.getSystemStats().battery;
+		 function getDataToSend(){
+		 var responseDictionary = {};
+			log("function getDataToSend() getting data...");
+
+			//gps
+			if(gpsField.enabledByIQ == true){
+				log("function getDataToSend gps");
+				responseDictionary.put("GPS", gpsField.value);
 			}
-			return {
-			"BATTERY" => batteryInfo,
-			"GPS" => gpsInfo
-			};
+			
+			//simple fields
+			for(var i = 0 ; i < simpleItems.size(); i++){
+				var item = simpleItems[i];
+				if(item.enableByIQ == true){
+					item.lastValue = item.prepareValue();
+					log("function getDataToSend"+item.name+"="+item.lastValue);
+					responseDictionary.put(item.name , item.lastValue);
+				}
+			}		
+			
+			// other data
+			responseDictionary.put("OTHER", otherData);	
+			
+			
+			// ant+
+			if(heartRateHolder.enabledByIQ == true){
+				responseDictionary.put("HEART_RATE", antContainer.lastValue.heartRate);
+			}
+			if(cadenceHolder.enabledByIQ == true){
+				responseDictionary.put("CADENCE", antContainer.lastValue.cadence);
+			}
+			if(powerHolder.enabledByIQ == true){
+				responseDictionary.put("POWER", antContainer.lastValue.power);
+			}
+			if(speedHolder.enabledByIQ == true){
+				responseDictionary.put("SPEED", antContainer.lastValue.speed);
+			}
+			if(temperatureHolder.enabledByIQ == true){
+				responseDictionary.put("TEMPERATURE", antContainer.lastValue.temperature);
+			}
+			log("function getDataToSend data="+responseDictionary);
+			return responseDictionary;
 		}
 		
-		private function setSendingTimer(){
+		 function setSendingTimer(){
 			log("function setSendingTimer()");
-			if(sendingTimer == null){
+				if(sendingTimer == null){
 				sendingTimer = new Toybox.Timer.Timer();
 				sendingTimer.start(Toybox.Lang.Object.method(:sendData), SENDING_INTERVAL , false);	
 			}
 		}
 		
-		private function sendData(){
+		 function sendData(){
 			log("function sendData()");
-			if(sendingInProgress ==false){
+			if(sendingInProgress == false){
+				sendingInProgress = true;
 				sendingTimer.stop();
 				sendingTimer = null;
 				log(getDataToSend());				
@@ -312,6 +591,7 @@ module IQDroid {
     		
     		function onError(){
     			log("function SendingCallback.onError()");
+    			otherData = "";
 	    		sendingInProgress=false;
 				errorCallback.invoke("ERROR SENDING");
 				setSendingTimer();
