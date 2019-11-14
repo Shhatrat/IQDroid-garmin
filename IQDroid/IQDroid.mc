@@ -255,9 +255,9 @@ module IQDroid {
 		function requestCallback(){
 			if(!isDownloading){
 			  isDownloading = true;
-//			  Toybox.Communications.makeWebRequest("http://127.0.0.1:8000/", parameters, options, Toybox.Lang.Object.method(:downloadCallback));
+			  Toybox.Communications.makeWebRequest("http://127.0.0.1:8000/", parameters, options, Toybox.Lang.Object.method(:downloadCallback));
 //			  Toybox.Communications.makeWebRequest("https://pastebin.com/raw/jaa4fEP1", parameters, options, Toybox.Lang.Object.method(:downloadCallback));
-			  Toybox.Communications.makeWebRequest("https://pastebin.com/raw/7khxeVgE", parameters, options, Toybox.Lang.Object.method(:downloadCallback));
+//			  Toybox.Communications.makeWebRequest("https://pastebin.com/raw/7khxeVgE", parameters, options, Toybox.Lang.Object.method(:downloadCallback));
 			}
 		}
 
@@ -654,7 +654,7 @@ module IQDroid {
 	   				onUpdateViewCallback.invoke();
 	   			}
    			}
-   			
+
    			function prepareCurrentItem(){
    			    if(currentItem==null){
    			        for(var i = 0 ; i < items.size(); i++){
@@ -687,8 +687,6 @@ module IQDroid {
                 }
    			}
 
-
-
    			function removeCallback(){
    			    onUpdateViewCallback = null;
    			}
@@ -698,55 +696,37 @@ module IQDroid {
    			}
    		}
 
+   		function keyPressed(key){
+	   		sharedScreenData.keyPressed(key.getKey());
+   		}
+
+   		function setCallbackTest(cb){
+   			sharedScreenData.setCallback(cb);
+   		}
+
    		/**
    		*	Shared object
    		**/
 
    		var sharedScreenData = new SharedData();
 
-   		/**
-		*	View implementations
-		**/
-		class IQDelegate extends Toybox.WatchUi.BehaviorDelegate {
-			function initialize() {
-				logsEnabled = true;
-        		Toybox.WatchUi.BehaviorDelegate.initialize();
-    	    	log("IQDelegate created");
-		    }
-
-		     function onKey(key){
-		     	log("key="+key.getKey());
-		     	sharedScreenData.keyPressed(key.getKey());
-		     }
+		function screenItemsSize(){
+			if(sharedScreenData.currentItem!=null && sharedScreenData.currentItem["screenItemList"]!=null){
+				var item = sharedScreenData.currentItem["screenItemList"];
+			return item.size();
+			}
+			return "zero";
 		}
 
-		class IQView extends Toybox.WatchUi.View {
-
-			var cb = Toybox.Lang.Object.method(:update);
-
-	    	function initialize() {
-	    		sharedScreenData.setCallback(cb);
-    	    	log("IQView created");
-	    	}
-
-	    	function onHide() {
-//				sharedScreenData.removeCallback();
-    		}
-
-	   	    function update(){
-				Toybox.WatchUi.requestUpdate();
-		    }
-
-	    	function onUpdate(dc){
-				//handle currentItem
+		function onScreenUpdate(dc){
 				if(sharedScreenData.currentItem!=null && sharedScreenData.currentItem["screenItemList"]!=null){
 				var item = sharedScreenData.currentItem["screenItemList"];
 				log("item -->"+item);
                     handleItem(dc, item);
 				}
-	    	}
+		}
 
-	    	function handleItem(dc, item){
+            	    function handleItem(dc, item){
 	    	        			for(var i = 0 ; i < item.size(); i++){
                                     switch (item[i]["type"]){
                                     case "DRAW_TEXT":
@@ -792,6 +772,5 @@ module IQDroid {
 				dc.setColor(color, backgroundColor);
 				dc.drawText(x,y,font,text,justification);
 			}
-		}
 	}
 }
