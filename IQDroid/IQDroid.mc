@@ -735,13 +735,77 @@ module IQDroid {
                                     case "BACKGROUND":
                                         drawBackgroundColor(item[i], dc);
                                         break;
-                                    }
+                                    case "LINE":
+                                        drawLine(item[i], dc);
+                                        break;
+                                    case "ELLIPSE":
+                                    	drawEllipse(item[i], dc);
+                                    	break;
+                                    case "CIRCLE":
+                                    	drawCircle(item[i], dc);
+                                    	break;
+                                    case "RECTANGLE":
+                                    	drawRectangle(item[i], dc);
+                                    	break;
+                                    case "RECTANGLE_ROUNDED":
+                                    	drawRectangleRounded(item[i], dc);
+                                    	break;
+                                    }                                    
             	    		    }
 	    	}
 
 	    	/**
 	    	*   Function for handling items
 	    	**/
+	    	function drawRectangleRounded(item, dc){
+                rawDrawRectangleRounded(dc,
+                            item["color"],
+                            item["backgroundColor"],
+                            item["x"],
+                            item["y"],
+                            item["data"]["width"],	    	
+                            item["data"]["height"],
+                            item["data"]["radius"]);	    	
+	    	}
+	    	
+	    	function drawRectangle(item, dc){
+                rawDrawRectangle(dc,
+                            item["color"],
+                            item["backgroundColor"],
+                            item["x"],
+                            item["y"],
+                            item["data"]["width"],	    	
+                            item["data"]["height"]);	    	
+	    	}
+	    	
+	    	function drawCircle(item, dc){
+                rawDrawEllipse(dc,
+                            item["color"],
+                            item["backgroundColor"],
+                            item["x"],
+                            item["y"],
+                            item["data"]["radius"]);	    	
+	    	}
+	    	
+	    	function drawEllipse(item, dc){
+                rawDrawEllipse(dc,
+                            item["color"],
+                            item["backgroundColor"],
+                            item["x"],
+                            item["y"],
+                            item["data"]["a"],
+                            item["data"]["b"]);
+	    	}
+	    	
+	    	function drawLine(item, dc){
+                rawDrawLine(dc,
+                            item["color"],
+                            item["backgroundColor"],
+                            item["data"]["x1"],
+                            item["data"]["y1"],
+                            item["data"]["x2"],
+                            item["data"]["y2"]);
+	    	}
 
 	    	function drawText(item, dc){
                 rawDrawText(dc,
@@ -762,6 +826,30 @@ module IQDroid {
 			/**
 			*	Functions for creating UI.
 			**/
+			function rawDrawRectangleRounded(dc, color, backgroundColor, x, y, width, height, radius){
+				dc.setColor(color, backgroundColor);
+				dc.drawRectangleRounded(x,y,width, height, radius);
+			}
+
+			function rawDrawRectangle(dc, color, backgroundColor, x, y, width, height){
+				dc.setColor(color, backgroundColor);
+				dc.drawRectangle(x,y,width, height);
+			}
+			
+			function rawDrawCircle(dc, color, backgroundColor, x, y, radius){
+				dc.setColor(color, backgroundColor);
+				dc.drawCircle(x,y,radius);
+			}
+			
+			function rawDrawEllipse(dc, color, backgroundColor, x, y, a, b){
+				dc.setColor(color, backgroundColor);
+				dc.drawEllipse(x,y,a,b);
+			}
+			
+			function rawDrawLine(dc, color, backgroundColor, x1, y1, x2, y2){
+				dc.setColor(color, backgroundColor);
+				dc.drawLine(x1, y1, x2, y2);
+			}
 
 			function rawDrawBackgroundColor(dc, color){
 	           	dc.setColor(color, color);
