@@ -6,7 +6,7 @@ class IQDroidexampleView extends WatchUi.View {
 
     function initialize() {
         View.initialize();
-        IQDroid.IQ.startIQDroid(method(:onDownloadSuccessfully), method(:onError), 8000, true); 
+        IQDroid.IQ.startIQDroid(method(:onDownloadSuccessfully), method(:onError), 8000, true, true); 
     }
 
     // Load your resources here

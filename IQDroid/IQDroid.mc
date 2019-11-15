@@ -166,6 +166,7 @@ module IQDroid {
 		var simpleItems;	//list of SimpleFieldHolder
 
 		var otherData = "";
+		var screensDataToSend = "";
 
 		function initData(){
 		//create AntContainer.items
@@ -206,6 +207,7 @@ module IQDroid {
 		**/
 		 var timer = new Toybox.Timer.Timer();
 		 var timerEnabled = false;
+		 var screensEnabled;
 		 var dataCallback;
 		 var errorCallback;
 		 var port;
@@ -216,14 +218,16 @@ module IQDroid {
 		*	@param ec callback for errors of communcation with Android device
 		*	@param p port of web server in Android device
 		*	@param l enable logs
+		*	@param s enable screens
 		**/
-		function startIQDroid(c, ec, p, l){
+		function startIQDroid(c, ec, p, l, s){
 			if(!timerEnabled){
 				port = p;
 				dataCallback = c;
 				errorCallback = ec;
 				logsEnabled = l;
 				timerEnabled = true;
+				screensEnabled = s;
 				initData();
 		    	timer.start(Toybox.Lang.Object.method(:requestCallback), DOWNLOADING_INTERVAL, true);
 		    }
@@ -296,12 +300,14 @@ module IQDroid {
 			var id = data["id"];
 			var requests = data["req"];
 			var updatedData = new UpdatedData(id,requests);
-			var screens = data["screens"];
-			log("screens="+screens);
-			if(screens!=null){
-				sharedScreenData.items = screens;
-				sharedScreenData.prepareCurrentItem();
-				sharedScreenData.dataUpdated();
+			if(screensEnabled==true){
+				var screens = data["screens"];
+				log("screens="+screens);
+				if(screens!=null){
+					sharedScreenData.items = screens;
+					sharedScreenData.prepareCurrentItem();
+					sharedScreenData.dataUpdated();
+				}
 			}
 			log("function handleDataFromAndroidDev() id="+id+" lastId="+lastId);
 			if(id>lastId){
@@ -551,7 +557,11 @@ module IQDroid {
 			// other data
 			responseDictionary.put("OTHER", otherData);
 
-
+			// screensData data
+			if(screensEnabled==true){
+				responseDictionary.put("SCREENS", screensDataToSend);
+			}
+			
 			// ant+
 			if(heartRateHolder.enabledByIQ == true){
 				responseDictionary.put("HEART_RATE", antContainer.lastValue.heartRate);
@@ -600,6 +610,7 @@ module IQDroid {
     		function onError(){
     			log("function SendingCallback.onError()");
     			otherData = "";
+    			screensDataToSend = "";
 	    		sendingInProgress=false;
 				errorCallback.invoke("ERROR SENDING");
 				setSendingTimer();
@@ -692,7 +703,10 @@ module IQDroid {
    			}
 
    			function sendClick(id, key){
-   				//todo
+   				var tmpData= {};
+   				tmpData.put("ID", id);
+   				tmpData.put("KEYS", key);
+				screensDataToSend = tmpData;
    			}
    		}
 
