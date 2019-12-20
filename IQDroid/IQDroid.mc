@@ -260,8 +260,6 @@ module IQDroid {
 			if(!isDownloading){
 			  isDownloading = true;
 			  Toybox.Communications.makeWebRequest("http://127.0.0.1:8000/", parameters, options, Toybox.Lang.Object.method(:downloadCallback));
-//			  Toybox.Communications.makeWebRequest("https://pastebin.com/raw/jaa4fEP1", parameters, options, Toybox.Lang.Object.method(:downloadCallback));
-//			  Toybox.Communications.makeWebRequest("https://pastebin.com/raw/7khxeVgE", parameters, options, Toybox.Lang.Object.method(:downloadCallback));
 			}
 		}
 
@@ -667,13 +665,13 @@ module IQDroid {
    			}
 
    			function prepareCurrentItem(){
-   			    if(currentItem==null){
+//   			    if(currentItem==null){
    			        for(var i = 0 ; i < items.size(); i++){
-   			            if(items[i]["id"] == lastScreenId){
+   			            if(items[i][ID_FIELD_NAME] == lastScreenId){
    			                currentItem = items[i];
    			            }
    			        }
-   			    }
+//   			    }
    			}
 
   			function setCallback(callback){
@@ -682,18 +680,20 @@ module IQDroid {
 
    			function keyPressed(key){
    				sendClick(lastScreenId, key);
-
-      			for(var i = 0 ; i < currentItem["navigation"].size(); i++){
-      			    if(currentItem["navigation"][i]["keyCode"] == key){
-      			        for(var j = 0; j < items.size(); j++){
-      			            if(currentItem["navigation"][i]["id"] == items[j]["id"]){
-          			            currentItem = items[j];
-          			            lastScreenId = currentItem["id"];
-	            				dataUpdated();
-          			            break;
-      			            }
-      			        }
-      			        break;
+      			for(var i = 0 ; i < currentItem[NAVIGATION_FIELD_NAME].size(); i++){
+      			    if(currentItem[NAVIGATION_FIELD_NAME][i][KEYCODE_FIELD_NAME] == key){
+	      			        for(var j = 0; j < items.size(); j++){
+	    			            if(currentItem[NAVIGATION_FIELD_NAME][i][ID_FIELD_NAME] == EXIT_KEY_ID){
+	    			            	Toybox.WatchUi.popView(Toybox.WatchUi.SLIDE_IMMEDIATE);	          			            
+	       			            }								
+	      			            if(currentItem[NAVIGATION_FIELD_NAME][i][ID_FIELD_NAME] == items[j][ID_FIELD_NAME]){
+	          			            currentItem = items[j];
+	          			            lastScreenId = currentItem[ID_FIELD_NAME];
+		            				dataUpdated();
+	          			            break;
+	      			            }
+	      			        }
+      			        	break;
       			    }
                 }
    			}
@@ -723,18 +723,33 @@ module IQDroid {
    		**/
 
    		var sharedScreenData = new SharedData();
+   		
+   		var ID_FIELD_NAME = "i";
+   		var KEYCODE_FIELD_NAME = "k";
+   		var TRANSITION_FIELD_NAME = "t";
+   		var NAVIGATION_FIELD_NAME = "n";
+   		var SCREEN_ITEM_LIST_FIELD_NAME = "s";
+   		var BACKGROUND_COLOR_FIELD_NAME = "b";
+   		var TYPE_FIELD_NAME = "t";
+   		var COLOR_FIELD_NAME = "c";
+   		var DATA_FIELD_NAME = "d";
+	    var JUSTIFICATION_FIELD_NAME = "j";
+    	var TEXT_FIELD_NAME = "t";
+    	var FONT_FIELD_NAME = "f";   		
+    	
+    	var EXIT_KEY_ID = -1;
 
 		function screenItemsSize(){
-			if(sharedScreenData.currentItem!=null && sharedScreenData.currentItem["screenItemList"]!=null){
-				var item = sharedScreenData.currentItem["screenItemList"];
+			if(sharedScreenData.currentItem!=null && sharedScreenData.currentItem[SCREEN_ITEM_LIST_FIELD_NAME]!=null){
+				var item = sharedScreenData.currentItem[SCREEN_ITEM_LIST_FIELD_NAME];
 			return item.size();
 			}
 			return "zero";
 		}
 
 		function onScreenUpdate(dc){
-				if(sharedScreenData.currentItem!=null && sharedScreenData.currentItem["screenItemList"]!=null){
-				var item = sharedScreenData.currentItem["screenItemList"];
+				if(sharedScreenData.currentItem!=null && sharedScreenData.currentItem[SCREEN_ITEM_LIST_FIELD_NAME]!=null){
+				var item = sharedScreenData.currentItem[SCREEN_ITEM_LIST_FIELD_NAME];
 				log("item -->"+item);
                     handleItem(dc, item);
 				}
@@ -742,26 +757,26 @@ module IQDroid {
 
             	    function handleItem(dc, item){
 	    	        			for(var i = 0 ; i < item.size(); i++){
-                                    switch (item[i]["type"]){
-                                    case "DRAW_TEXT":
+                                    switch (item[i][TYPE_FIELD_NAME]){
+                                    case "DT":
                                         drawText(item[i], dc);
                                         break;
-                                    case "BACKGROUND":
+                                    case "BG":
                                         drawBackgroundColor(item[i], dc);
                                         break;
-                                    case "LINE":
+                                    case "LN":
                                         drawLine(item[i], dc);
                                         break;
-                                    case "ELLIPSE":
+                                    case "EL":
                                     	drawEllipse(item[i], dc);
                                     	break;
-                                    case "CIRCLE":
+                                    case "CR":
                                     	drawCircle(item[i], dc);
                                     	break;
-                                    case "RECTANGLE":
+                                    case "RT":
                                     	drawRectangle(item[i], dc);
                                     	break;
-                                    case "RECTANGLE_ROUNDED":
+                                    case "RTR":
                                     	drawRectangleRounded(item[i], dc);
                                     	break;
                                     }                                    
@@ -773,13 +788,13 @@ module IQDroid {
 	    	**/
 	    	function drawRectangleRounded(item, dc){
                 rawDrawRectangleRounded(dc,
-                            item["color"],
-                            item["backgroundColor"],
+                            item[COLOR_FIELD_NAME],
+                            item[BACKGROUND_COLOR_FIELD_NAME],
                             item["x"],
                             item["y"],
-                            item["data"]["width"],	    	
-                            item["data"]["height"],
-                            item["data"]["radius"]);	    	
+                            item[DATA_FIELD_NAME]["width"],	    	
+                            item[DATA_FIELD_NAME]["height"],
+                            item[DATA_FIELD_NAME]["radius"]);	    	
 	    	}
 	    	
 	    	function drawRectangle(item, dc){
@@ -823,18 +838,18 @@ module IQDroid {
 
 	    	function drawText(item, dc){
                 rawDrawText(dc,
-                            item["color"],
-                            item["backgroundColor"],
+                            item[COLOR_FIELD_NAME],
+                            item[BACKGROUND_COLOR_FIELD_NAME],
                             item["x"],
                             item["y"],
-                            item["data"]["font"],
-                            item["data"]["text"],
-                            item["data"]["justification"]);
+                            item[DATA_FIELD_NAME][FONT_FIELD_NAME],
+                            item[DATA_FIELD_NAME][TEXT_FIELD_NAME],
+                            item[DATA_FIELD_NAME][JUSTIFICATION_FIELD_NAME]);
 	    	}
 
 	    	function drawBackgroundColor(item, dc){
                 rawDrawBackgroundColor(	dc,
-                            item["color"]);
+                            item[COLOR_FIELD_NAME]);
 	    	}
 
 			/**
