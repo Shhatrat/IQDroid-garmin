@@ -705,7 +705,7 @@ module IQDroid {
    			function sendClick(id, key){
    				var tmpData= {};
    				tmpData.put("ID", id);
-   				tmpData.put("KEYS", key);
+   				tmpData.put("KEY", key);
 				screensDataToSend = tmpData;
    			}
    		}
