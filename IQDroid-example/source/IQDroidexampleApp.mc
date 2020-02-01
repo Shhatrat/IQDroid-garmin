@@ -1,6 +1,6 @@
 using Toybox.Application;
 using Toybox.WatchUi;
-using IQDroid.UpdateManager;
+using IQDroid.IQ;
 using Toybox.Position;
 using Toybox.System;
 

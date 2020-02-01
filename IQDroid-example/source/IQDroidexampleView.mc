@@ -1,12 +1,12 @@
 using Toybox.WatchUi;
-using IQDroid.UpdateManager;
+using IQDroid.IQ;
 using Toybox.Graphics as Gfx;
 
 class IQDroidexampleView extends WatchUi.View {
 
     function initialize() {
         View.initialize();
-        IQDroid.UpdateManager.startIQDroid(method(:onDownloadSuccessfully), method(:onError), 8000, true); 
+        IQDroid.IQ.startIQDroid(method(:onDownloadSuccessfully), method(:onError), 8000, true, true); 
     }
 
     // Load your resources here
@@ -37,11 +37,13 @@ class IQDroidexampleView extends WatchUi.View {
         // Call the parent onUpdate function to redraw the layout
         View.onUpdate(dc);
         
-        View.onUpdate(dc);
         dc.setColor(Gfx.COLOR_BLACK, Gfx.COLOR_BLACK);
 		dc.clear();
 		dc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_TRANSPARENT);
 		dc.drawText(dc.getWidth()/2, dc.getHeight()* 0.2, Gfx.FONT_SMALL, mCode, Gfx.TEXT_JUSTIFY_CENTER);
+        
+//        Toybox.WatchUi.pushView( new IQDroid.IQ.IQView(), new IQDroid.IQ.IQDelegate(), Toybox.WatchUi.SLIDE_UP );
+        Toybox.WatchUi.pushView( new IQQVTest(), new IQQDTest(), Toybox.WatchUi.SLIDE_UP );
         
     }
 
