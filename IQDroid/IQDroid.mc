@@ -160,7 +160,7 @@ module IQDroid {
 		var heartRateHolder = new AntHolder(Toybox.Sensor.SENSOR_HEARTRATE);
 		var powerHolder =  new AntHolder(Toybox.Sensor.SENSOR_BIKEPOWER);
 		var speedHolder = new AntHolder(Toybox.Sensor.SENSOR_BIKESPEED);
-		var temperatureHolder = new AntHolder(Toybox.Sensor.SENSOR_BIKEPOWER);
+		var temperatureHolder = new AntHolder(Toybox.Sensor.SENSOR_TEMPERATURE);
 
 		var antContainer = new AntContainer();
 		var simpleItems;	//list of SimpleFieldHolder
@@ -431,7 +431,7 @@ module IQDroid {
 			 speedHolder.callbackForUser = c;
 		}
 
-		 function enableTemperatureByUser(c, enabled){
+		 function tryEnableTemperatureByUser(c, enabled){
 			 temperatureHolder.tryEnableByUser = enabled;
 			 temperatureHolder.callbackForUser = c;
 		}
@@ -510,23 +510,19 @@ module IQDroid {
 		}
 
 		/**
-		*	function for enabling gps by user.
+		*	function for enabling or disabling gps by user.
 		**/
-		function tryEnableGpsWithCallback(gpsC){
-			log("function tryEnableGpsWithCallback()");
-			gpsField.callbackForUser = gpsC;
-			gpsField.enabledByUser = true;
-			enableGPS();
-		}
-
-		/**
-		*	function for disabling gps by user.
-		**/
-		function disableGpsWithCallback(){
-			log("function disableGpsWithCallback()");
-			gpsField.callbackForUser = null;
-			gpsField.enabledByUser = false;
-			disableGPS();
+		function tryEnableGpsWithCallback(gpsC, enabled){
+		if(enabled){
+				log("function tryEnableGpsWithCallback()");
+				gpsField.callbackForUser = gpsC;
+				gpsField.enabledByUser = true;
+				enableGPS();
+			}else{
+				gpsField.callbackForUser = null;
+				gpsField.enabledByUser = false;
+				disableGPS();
+			}
 		}
 
 		/**

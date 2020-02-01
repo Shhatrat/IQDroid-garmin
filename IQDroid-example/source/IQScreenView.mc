@@ -7,7 +7,6 @@ class IQScreenView extends Toybox.WatchUi.View {
 
 	function initialize() {
 	    Toybox.WatchUi.View.initialize();
-	    IQDroid.IQ.startIQDroid(method(:onDownloadSuccessfully), method(:onError), 8000, true, true); 
 		IQDroid.IQ.setCallbackTest(cb);
 	}
 	
