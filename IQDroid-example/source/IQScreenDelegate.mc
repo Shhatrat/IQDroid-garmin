@@ -1,6 +1,6 @@
 using IQDroid.IQ;
 
-class IQQDTest extends Toybox.WatchUi.BehaviorDelegate {
+class IQScreenDelegate extends Toybox.WatchUi.BehaviorDelegate {
 
 	function initialize() {
 		Toybox.WatchUi.BehaviorDelegate.initialize();

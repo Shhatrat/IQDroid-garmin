@@ -20,7 +20,6 @@ class IQDroidexampleApp extends Application.AppBase {
 
     // Return the initial view of your application here
     function getInitialView() {
-        return [ new IQDroidexampleView(), new IQDroidexampleDelegate() ];
-    }
-
+        return [ new IQInitView(), new IQInitDelegate() ];
+   }
 }

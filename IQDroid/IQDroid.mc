@@ -8,7 +8,7 @@ module IQDroid {
 	**/
 	const url = "127.0.0.1:";
 	const options = {	:responseType => Toybox.Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON };
-	const parameters = null;
+	const parameters = {};
 
 	//in millis
 	const SENDING_INTERVAL = 1000;
@@ -278,7 +278,7 @@ module IQDroid {
 			if(!isDownloading){
 			  isDownloading = true;
 			  Toybox.Communications.makeWebRequest("http://127.0.0.1:8000/", parameters, options, Toybox.Lang.Object.method(:downloadCallback));
-//			  Toybox.Communications.makeWebRequest("https://pastebin.com/raw/cPStzb5b", parameters, options, Toybox.Lang.Object.method(:downloadCallback));
+//			  Toybox.Communications.makeWebRequest("https://pastebin.com/raw/3uaZju5T", parameters, options, Toybox.Lang.Object.method(:downloadCallback));
 			}
 		}
 
