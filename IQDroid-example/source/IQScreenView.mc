@@ -1,13 +1,22 @@
 using IQDroid.IQ;
 using Toybox.Graphics as Gfx;
 
-class IQQVTest extends Toybox.WatchUi.View {
+class IQScreenView extends Toybox.WatchUi.View {
 
 	var cb = Toybox.Lang.Object.method(:update);
 
 	function initialize() {
 	    Toybox.WatchUi.View.initialize();
+	    IQDroid.IQ.startIQDroid(method(:onDownloadSuccessfully), method(:onError), 8000, true, true); 
 		IQDroid.IQ.setCallbackTest(cb);
+	}
+	
+	function onDownloadSuccessfully(info){
+	    	Toybox.System.println(info);
+	}
+	
+	function onError(code){
+	    	Toybox.System.println(code);
 	}
 	
 	function update(){
