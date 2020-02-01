@@ -69,7 +69,7 @@ Screen is feature for creating dynamically IQ app.
 var callback = Toybox.Lang.Object.method(:update);
 
 function initialize() {
-    Toybox.WatchUi.View.initialize();
+	Toybox.WatchUi.View.initialize();
 	IQDroid.IQ.setCallbackTest(callback);
 }
 
@@ -78,7 +78,7 @@ function update(){
 }
 
 function onUpdate(dc){
-...
+	...
 	IQDroid.IQ.onScreenUpdate(dc);
 }
 ```
