@@ -47,6 +47,7 @@ Some data need special handling if you need get it on IQ device and Android lib 
  - bike cadence(ANT+)
  - bike speed(ANT+)
  - temperature(ANT+)
+ 
  For getting this data you should use functions:
 
 ```
