@@ -699,21 +699,23 @@ module IQDroid {
 
    			function keyPressed(key){
    				sendClick(lastScreenId, key);
-      			for(var i = 0 ; i < currentItem[NAVIGATION_FIELD_NAME].size(); i++){
-      			    if(currentItem[NAVIGATION_FIELD_NAME][i][KEYCODE_FIELD_NAME] == key){
-	      			        for(var j = 0; j < items.size(); j++){
-	    			            if(currentItem[NAVIGATION_FIELD_NAME][i][ID_FIELD_NAME] == EXIT_KEY_ID){
-	    			            	Toybox.WatchUi.popView(Toybox.WatchUi.SLIDE_IMMEDIATE);	          			            
-	       			            }								
-	      			            if(currentItem[NAVIGATION_FIELD_NAME][i][ID_FIELD_NAME] == items[j][ID_FIELD_NAME]){
-	          			            currentItem = items[j];
-	          			            lastScreenId = currentItem[ID_FIELD_NAME];
-		            				dataUpdated();
-	          			            break;
-	      			            }
-	      			        }
-      			        	break;
-      			    }
+   				if(currentItem!=null){
+	      			for(var i = 0 ; i < currentItem[NAVIGATION_FIELD_NAME].size(); i++){
+	      			    if(currentItem[NAVIGATION_FIELD_NAME][i][KEYCODE_FIELD_NAME] == key){
+		      			        for(var j = 0; j < items.size(); j++){
+		    			            if(currentItem[NAVIGATION_FIELD_NAME][i][ID_FIELD_NAME] == EXIT_KEY_ID){
+		    			            	Toybox.WatchUi.popView(Toybox.WatchUi.SLIDE_IMMEDIATE);	          			            
+		       			            }								
+		      			            if(currentItem[NAVIGATION_FIELD_NAME][i][ID_FIELD_NAME] == items[j][ID_FIELD_NAME]){
+		          			            currentItem = items[j];
+		          			            lastScreenId = currentItem[ID_FIELD_NAME];
+			            				dataUpdated();
+		          			            break;
+		      			            }
+		      			        }
+	      			        	break;
+	      			    }
+	                }
                 }
    			}
 
