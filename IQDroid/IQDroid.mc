@@ -229,9 +229,27 @@ module IQDroid {
 				timerEnabled = true;
 				screensEnabled = s;
 				initData();
-		    	timer.start(Toybox.Lang.Object.method(:requestCallback), DOWNLOADING_INTERVAL, true);
+				sendHello();
 		    }
 		}
+		
+		function sendHello(){
+			Toybox.Communications.transmit("hello IQDroid", null, new SendingHelloCallback());
+		}
+		
+		class SendingHelloCallback extends Toybox.Communications.ConnectionListener{
+	    	function initialize(){
+				Toybox.Communications.ConnectionListener.initialize();
+ 			}
+
+    		function onError(){
+		    	timer.start(Toybox.Lang.Object.method(:requestCallback), DOWNLOADING_INTERVAL, true);
+	    	}
+
+    		function onComplete(){
+		    	timer.start(Toybox.Lang.Object.method(:requestCallback), DOWNLOADING_INTERVAL, true);
+    		}
+   		}
 
 		/**
 		*	checking is IQDroid enabled
@@ -260,6 +278,7 @@ module IQDroid {
 			if(!isDownloading){
 			  isDownloading = true;
 			  Toybox.Communications.makeWebRequest("http://127.0.0.1:8000/", parameters, options, Toybox.Lang.Object.method(:downloadCallback));
+//			  Toybox.Communications.makeWebRequest("https://pastebin.com/raw/cPStzb5b", parameters, options, Toybox.Lang.Object.method(:downloadCallback));
 			}
 		}
 
@@ -735,7 +754,12 @@ module IQDroid {
    		var DATA_FIELD_NAME = "d";
 	    var JUSTIFICATION_FIELD_NAME = "j";
     	var TEXT_FIELD_NAME = "t";
-    	var FONT_FIELD_NAME = "f";   		
+    	var FONT_FIELD_NAME = "f";   	
+    	var X_FIELD_NAME = "x";
+    	var Y_FIELD_NAME = "y";	
+    	var WIDTH_FIELD_NAME = "w";	
+    	var HEIGHT_FIELD_NAME = "h";	
+    	var RADIUS_FIELD_NAME = "r";	
     	
     	var EXIT_KEY_ID = -1;
 
@@ -790,58 +814,58 @@ module IQDroid {
                 rawDrawRectangleRounded(dc,
                             item[COLOR_FIELD_NAME],
                             item[BACKGROUND_COLOR_FIELD_NAME],
-                            item["x"],
-                            item["y"],
-                            item[DATA_FIELD_NAME]["width"],	    	
-                            item[DATA_FIELD_NAME]["height"],
-                            item[DATA_FIELD_NAME]["radius"]);	    	
+                            item[X_FIELD_NAME],
+                            item[Y_FIELD_NAME],
+                            item[DATA_FIELD_NAME][WIDTH_FIELD_NAME],	    	
+                            item[DATA_FIELD_NAME][HEIGHT_FIELD_NAME],
+                            item[DATA_FIELD_NAME][RADIUS_FIELD_NAME]);	    	
 	    	}
 	    	
 	    	function drawRectangle(item, dc){
                 rawDrawRectangle(dc,
-                            item["color"],
-                            item["backgroundColor"],
-                            item["x"],
-                            item["y"],
-                            item["data"]["width"],	    	
-                            item["data"]["height"]);	    	
+                            item[COLOR_FIELD_NAME],
+                            item[BACKGROUND_COLOR_FIELD_NAME],
+                            item[X_FIELD_NAME],
+                            item[Y_FIELD_NAME],
+                            item[DATA_FIELD_NAME][WIDTH_FIELD_NAME],	    	
+                            item[DATA_FIELD_NAME][HEIGHT_FIELD_NAME]);	    	
 	    	}
 	    	
 	    	function drawCircle(item, dc){
-                rawDrawEllipse(dc,
-                            item["color"],
-                            item["backgroundColor"],
-                            item["x"],
-                            item["y"],
-                            item["data"]["radius"]);	    	
+                rawDrawCircle(dc,
+                            item[COLOR_FIELD_NAME],
+                            item[BACKGROUND_COLOR_FIELD_NAME],
+                            item[X_FIELD_NAME],
+                            item[Y_FIELD_NAME],
+                            item[DATA_FIELD_NAME][RADIUS_FIELD_NAME]);	    	
 	    	}
 	    	
 	    	function drawEllipse(item, dc){
                 rawDrawEllipse(dc,
-                            item["color"],
-                            item["backgroundColor"],
-                            item["x"],
-                            item["y"],
-                            item["data"]["a"],
-                            item["data"]["b"]);
+                            item[COLOR_FIELD_NAME],
+                            item[BACKGROUND_COLOR_FIELD_NAME],
+                            item[X_FIELD_NAME],
+                            item[Y_FIELD_NAME],
+                            item[DATA_FIELD_NAME]["a"],
+                            item[DATA_FIELD_NAME]["b"]);
 	    	}
 	    	
 	    	function drawLine(item, dc){
                 rawDrawLine(dc,
-                            item["color"],
-                            item["backgroundColor"],
-                            item["data"]["x1"],
-                            item["data"]["y1"],
-                            item["data"]["x2"],
-                            item["data"]["y2"]);
+                            item[COLOR_FIELD_NAME],
+                            item[BACKGROUND_COLOR_FIELD_NAME],
+                            item[DATA_FIELD_NAME]["x1"],
+                            item[DATA_FIELD_NAME]["y1"],
+                            item[DATA_FIELD_NAME]["x2"],
+                            item[DATA_FIELD_NAME]["y2"]);
 	    	}
 
 	    	function drawText(item, dc){
                 rawDrawText(dc,
                             item[COLOR_FIELD_NAME],
                             item[BACKGROUND_COLOR_FIELD_NAME],
-                            item["x"],
-                            item["y"],
+                            item[X_FIELD_NAME],
+                            item[Y_FIELD_NAME],
                             item[DATA_FIELD_NAME][FONT_FIELD_NAME],
                             item[DATA_FIELD_NAME][TEXT_FIELD_NAME],
                             item[DATA_FIELD_NAME][JUSTIFICATION_FIELD_NAME]);
@@ -857,7 +881,7 @@ module IQDroid {
 			**/
 			function rawDrawRectangleRounded(dc, color, backgroundColor, x, y, width, height, radius){
 				dc.setColor(color, backgroundColor);
-				dc.drawRectangleRounded(x,y,width, height, radius);
+				dc.drawRoundedRectangle(x,y,width, height, radius);
 			}
 
 			function rawDrawRectangle(dc, color, backgroundColor, x, y, width, height){
