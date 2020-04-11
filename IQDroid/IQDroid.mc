@@ -160,7 +160,7 @@ module IQDroid {
 		var heartRateHolder = new AntHolder(Toybox.Sensor.SENSOR_HEARTRATE);
 		var powerHolder =  new AntHolder(Toybox.Sensor.SENSOR_BIKEPOWER);
 		var speedHolder = new AntHolder(Toybox.Sensor.SENSOR_BIKESPEED);
-		var temperatureHolder = new AntHolder(Toybox.Sensor.SENSOR_BIKEPOWER);
+		var temperatureHolder = new AntHolder(Toybox.Sensor.SENSOR_TEMPERATURE);
 
 		var antContainer = new AntContainer();
 		var simpleItems;	//list of SimpleFieldHolder
@@ -232,11 +232,11 @@ module IQDroid {
 				sendHello();
 		    }
 		}
-		
+
 		function sendHello(){
 			Toybox.Communications.transmit("hello IQDroid", null, new SendingHelloCallback());
 		}
-		
+
 		class SendingHelloCallback extends Toybox.Communications.ConnectionListener{
 	    	function initialize(){
 				Toybox.Communications.ConnectionListener.initialize();
@@ -431,7 +431,7 @@ module IQDroid {
 			 speedHolder.callbackForUser = c;
 		}
 
-		 function enableTemperatureByUser(c, enabled){
+		 function tryEnableTemperatureByUser(c, enabled){
 			 temperatureHolder.tryEnableByUser = enabled;
 			 temperatureHolder.callbackForUser = c;
 		}
@@ -510,23 +510,19 @@ module IQDroid {
 		}
 
 		/**
-		*	function for enabling gps by user.
+		*	function for enabling or disabling gps by user.
 		**/
-		function tryEnableGpsWithCallback(gpsC){
-			log("function tryEnableGpsWithCallback()");
-			gpsField.callbackForUser = gpsC;
-			gpsField.enabledByUser = true;
-			enableGPS();
-		}
-
-		/**
-		*	function for disabling gps by user.
-		**/
-		function disableGpsWithCallback(){
-			log("function disableGpsWithCallback()");
-			gpsField.callbackForUser = null;
-			gpsField.enabledByUser = false;
-			disableGPS();
+		function tryEnableGpsWithCallback(gpsC, enabled){
+		if(enabled){
+				log("function tryEnableGpsWithCallback()");
+				gpsField.callbackForUser = gpsC;
+				gpsField.enabledByUser = true;
+				enableGPS();
+			}else{
+				gpsField.callbackForUser = null;
+				gpsField.enabledByUser = false;
+				disableGPS();
+			}
 		}
 
 		/**
@@ -578,7 +574,7 @@ module IQDroid {
 			if(screensEnabled==true){
 				responseDictionary.put("SCREENS", screensDataToSend);
 			}
-			
+
 			// ant+
 			if(heartRateHolder.enabledByIQ == true){
 				responseDictionary.put("HEART_RATE", antContainer.lastValue.heartRate);
@@ -595,6 +591,24 @@ module IQDroid {
 			if(temperatureHolder.enabledByIQ == true){
 				responseDictionary.put("TEMPERATURE", antContainer.lastValue.temperature);
 			}
+
+			// ant+ callback
+			if(heartRateHolder.enabledByUser == true){
+               heartRateHolder.callbackForUser.invoke();
+			}
+			if(cadenceHolder.enabledByUser == true){
+               cadenceHolder.callbackForUser.invoke();
+			}
+			if(powerHolder.enabledByUser == true){
+               powerHolder.callbackForUser.invoke();
+			}
+			if(speedHolder.enabledByUser == true){
+               speedHolder.callbackForUser.invoke();
+			}
+			if(temperatureHolder.enabledByUser == true){
+               temperatureHolder.callbackForUser.invoke();
+			}
+
 			log("function getDataToSend data="+responseDictionary);
 			return responseDictionary;
 		}
@@ -704,8 +718,8 @@ module IQDroid {
 	      			    if(currentItem[NAVIGATION_FIELD_NAME][i][KEYCODE_FIELD_NAME] == key){
 		      			        for(var j = 0; j < items.size(); j++){
 		    			            if(currentItem[NAVIGATION_FIELD_NAME][i][ID_FIELD_NAME] == EXIT_KEY_ID){
-		    			            	Toybox.WatchUi.popView(Toybox.WatchUi.SLIDE_IMMEDIATE);	          			            
-		       			            }								
+		    			            	Toybox.WatchUi.popView(Toybox.WatchUi.SLIDE_IMMEDIATE);
+		       			            }
 		      			            if(currentItem[NAVIGATION_FIELD_NAME][i][ID_FIELD_NAME] == items[j][ID_FIELD_NAME]){
 		          			            currentItem = items[j];
 		          			            lastScreenId = currentItem[ID_FIELD_NAME];
@@ -744,7 +758,7 @@ module IQDroid {
    		**/
 
    		var sharedScreenData = new SharedData();
-   		
+
    		var ID_FIELD_NAME = "i";
    		var KEYCODE_FIELD_NAME = "k";
    		var TRANSITION_FIELD_NAME = "t";
@@ -756,13 +770,13 @@ module IQDroid {
    		var DATA_FIELD_NAME = "d";
 	    var JUSTIFICATION_FIELD_NAME = "j";
     	var TEXT_FIELD_NAME = "t";
-    	var FONT_FIELD_NAME = "f";   	
+    	var FONT_FIELD_NAME = "f";
     	var X_FIELD_NAME = "x";
-    	var Y_FIELD_NAME = "y";	
-    	var WIDTH_FIELD_NAME = "w";	
-    	var HEIGHT_FIELD_NAME = "h";	
-    	var RADIUS_FIELD_NAME = "r";	
-    	
+    	var Y_FIELD_NAME = "y";
+    	var WIDTH_FIELD_NAME = "w";
+    	var HEIGHT_FIELD_NAME = "h";
+    	var RADIUS_FIELD_NAME = "r";
+
     	var EXIT_KEY_ID = -1;
 
 		function screenItemsSize(){
@@ -805,7 +819,7 @@ module IQDroid {
                                     case "RTR":
                                     	drawRectangleRounded(item[i], dc);
                                     	break;
-                                    }                                    
+                                    }
             	    		    }
 	    	}
 
@@ -818,30 +832,30 @@ module IQDroid {
                             item[BACKGROUND_COLOR_FIELD_NAME],
                             item[X_FIELD_NAME],
                             item[Y_FIELD_NAME],
-                            item[DATA_FIELD_NAME][WIDTH_FIELD_NAME],	    	
+                            item[DATA_FIELD_NAME][WIDTH_FIELD_NAME],
                             item[DATA_FIELD_NAME][HEIGHT_FIELD_NAME],
-                            item[DATA_FIELD_NAME][RADIUS_FIELD_NAME]);	    	
+                            item[DATA_FIELD_NAME][RADIUS_FIELD_NAME]);
 	    	}
-	    	
+
 	    	function drawRectangle(item, dc){
                 rawDrawRectangle(dc,
                             item[COLOR_FIELD_NAME],
                             item[BACKGROUND_COLOR_FIELD_NAME],
                             item[X_FIELD_NAME],
                             item[Y_FIELD_NAME],
-                            item[DATA_FIELD_NAME][WIDTH_FIELD_NAME],	    	
-                            item[DATA_FIELD_NAME][HEIGHT_FIELD_NAME]);	    	
+                            item[DATA_FIELD_NAME][WIDTH_FIELD_NAME],
+                            item[DATA_FIELD_NAME][HEIGHT_FIELD_NAME]);
 	    	}
-	    	
+
 	    	function drawCircle(item, dc){
                 rawDrawCircle(dc,
                             item[COLOR_FIELD_NAME],
                             item[BACKGROUND_COLOR_FIELD_NAME],
                             item[X_FIELD_NAME],
                             item[Y_FIELD_NAME],
-                            item[DATA_FIELD_NAME][RADIUS_FIELD_NAME]);	    	
+                            item[DATA_FIELD_NAME][RADIUS_FIELD_NAME]);
 	    	}
-	    	
+
 	    	function drawEllipse(item, dc){
                 rawDrawEllipse(dc,
                             item[COLOR_FIELD_NAME],
@@ -851,7 +865,7 @@ module IQDroid {
                             item[DATA_FIELD_NAME]["a"],
                             item[DATA_FIELD_NAME]["b"]);
 	    	}
-	    	
+
 	    	function drawLine(item, dc){
                 rawDrawLine(dc,
                             item[COLOR_FIELD_NAME],
@@ -890,17 +904,17 @@ module IQDroid {
 				dc.setColor(color, backgroundColor);
 				dc.drawRectangle(x,y,width, height);
 			}
-			
+
 			function rawDrawCircle(dc, color, backgroundColor, x, y, radius){
 				dc.setColor(color, backgroundColor);
 				dc.drawCircle(x,y,radius);
 			}
-			
+
 			function rawDrawEllipse(dc, color, backgroundColor, x, y, a, b){
 				dc.setColor(color, backgroundColor);
 				dc.drawEllipse(x,y,a,b);
 			}
-			
+
 			function rawDrawLine(dc, color, backgroundColor, x1, y1, x2, y2){
 				dc.setColor(color, backgroundColor);
 				dc.drawLine(x1, y1, x2, y2);
