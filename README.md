@@ -4,6 +4,8 @@ Library for monkey-c devices.
 
 Please see full description here: https://github.com/Shhatrat/IQDroid
 
+Download: [1.2.0](https://github.com/Shhatrat/IQDroid-garmin/raw/master/IQDroid-1.2.0.barrel)
+
 # Usage
 ### Init
 Usage is quite simple. Firstly, you have to init library:
